@@ -1,5 +1,10 @@
 require 'mechanize'
 
+# Reset the database and then migrate schema information:
+# http://stackoverflow.com/questions/4116067/how-to-recreate-the-database
+
+# rake db:reset db:migrate
+
 namespace :fire do
     desc "import fires from CalFire"
     task :import => :environment do
