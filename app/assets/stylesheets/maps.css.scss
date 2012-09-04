@@ -2,8 +2,9 @@
     margin-top: 10px;
 }
 
-#map img {
-    height: 300px;
-    width: 100%;
-    line-height: 0;
+#map {
+    img {
+        max-width: none;
+        height: 300px;
+    }
 }
