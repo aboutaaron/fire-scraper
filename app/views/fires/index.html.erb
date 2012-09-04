@@ -1,7 +1,13 @@
 <div class="row">
     <div class="span12">
         <br><br>
-
+        <% acres = [] %>
+        <% @fires.each do |fire| %>
+            <% acres << fire.total_acres_burned %>
+        <% end %>
+        <div class="hero-unit">
+            <h1>Fires have burned <%= number_with_delimiter(acres.inject(:+)) %> of land in California this year.</h1>
+        </div>
         <table class="table">
           <tr>
             <th>Fire name</th>
@@ -17,11 +23,12 @@
           </tr>
 
         <% @fires.each do |fire| %>
+          <% not_available = "Information not available" %>
           <tr>
             <td><%= fire.fire_name %></td>
             <td><%= fire.fire_county %></td>
             <td><%= fire.fire_address %></td>
-            <td><%= fire.total_acres_burned %></td>
+            <td><%= fire.total_acres_burned == 0 ? not_available : number_with_delimiter(fire.total_acres_burned) %></td>
             <td><%= fire.fire_contained %></td>
             <td><%= fire.date_fires_started %></td>
             <td><%= fire.last_date_fire_updated %></td>
