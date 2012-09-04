@@ -6,7 +6,7 @@
             <% acres << fire.total_acres_burned %>
         <% end %>
         <div class="hero-unit">
-            <h1>Fires have burned <%= number_with_delimiter(acres.inject(:+)) %> of land in California this year.</h1>
+            <h1>Wildfires have burned <%= number_with_delimiter(acres.inject(:+)) %> acres of land in California this year.</h1>
         </div>
         <table class="table">
           <tr>
@@ -25,22 +25,15 @@
         <% @fires.each do |fire| %>
           <% not_available = "Information not available" %>
           <tr>
-            <td><%= fire.fire_name %></td>
+            <td><i class="icon-fire"></i> <%= fire.fire_name %></td>
             <td><%= fire.fire_county %></td>
             <td><%= fire.fire_address %></td>
             <td><%= fire.total_acres_burned == 0 ? not_available : number_with_delimiter(fire.total_acres_burned) %></td>
             <td><%= fire.fire_contained %></td>
             <td><%= fire.date_fires_started %></td>
             <td><%= fire.last_date_fire_updated %></td>
-            <td><%= link_to 'Show', fire %></td>
-            <td><%= link_to 'Edit', edit_fire_path(fire) %></td>
-            <td><%= link_to 'Destroy', fire, method: :delete, data: { confirm: 'Are you sure?' } %></td>
           </tr>
         <% end %>
         </table>
-
-        <br />
-
-        <%= link_to 'New Fire', new_fire_path %>
     </div>
 </div>
