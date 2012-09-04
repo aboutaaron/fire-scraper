@@ -22,6 +22,14 @@ namespace :fire do
         dates_fires_started = []
         last_date_fires_updated = []
 
+        # Single page attributes
+        structures_destroyed = []
+        structures_threatend = []
+        fire_cause = []
+        fire_evacuations = []
+        injuries = []
+        fire_conditions = []
+
         # Name of the header
         a.page.search(".incident_table")[1..109].each do |fire|
             puts "Adding fire..."
