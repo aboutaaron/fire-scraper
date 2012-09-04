@@ -87,6 +87,9 @@ GEM
       activesupport (= 3.2.8)
       bundler (~> 1.0)
       railties (= 3.2.8)
+    rails-timeago (1.4.2)
+      actionpack (>= 3.1)
+      activesupport (>= 3.1)
     railties (3.2.8)
       actionpack (= 3.2.8)
       activesupport (= 3.2.8)
@@ -135,6 +138,7 @@ DEPENDENCIES
   leaflet-rails
   mechanize
   rails (= 3.2.8)
+  rails-timeago
   sass-rails (~> 3.2.3)
   sqlite3
   thin

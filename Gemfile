@@ -12,6 +12,7 @@ gem 'bootstrap-sass'
 gem 'thin'
 gem 'mechanize'
 gem 'leaflet-rails'
+gem 'rails-timeago'
 
 # Gems used only for assets and not required
 # in production environments by default.
