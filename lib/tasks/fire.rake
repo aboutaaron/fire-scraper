@@ -69,7 +69,7 @@ namespace :fire do
             # Date Started
             dates_fires_started << fire.search(":nth-child(7) td:nth-child(2)").text
             dates_fires_started.each do |x|
-                pyro.dates_fires_started = x
+                pyro.date_fires_started = x
             end
             # Last Update
             last_date_fires_updated << fire.search(".odd:nth-child(8) td:nth-child(2)").text
