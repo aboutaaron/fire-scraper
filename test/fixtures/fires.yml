@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  fire_name: MyString
+  fire_county: MyString
+  fire_address: MyString
+  total_acres_burned: 1
+  fire_contained: MyString
+  date_fires_started: MyString
+  last_date_fire_updated: MyString
+
+two:
+  fire_name: MyString
+  fire_county: MyString
+  fire_address: MyString
+  total_acres_burned: 1
+  fire_contained: MyString
+  date_fires_started: MyString
+  last_date_fire_updated: MyString
