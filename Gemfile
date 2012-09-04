@@ -7,6 +7,10 @@ gem 'rails', '3.2.8'
 
 gem 'sqlite3'
 
+# For this app...
+gem 'bootstrap-sass'
+gem 'thin'
+gem 'mechanize'
 
 # Gems used only for assets and not required
 # in production environments by default.
