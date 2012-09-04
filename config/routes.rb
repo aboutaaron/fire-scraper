@@ -1,5 +1,10 @@
 FireScraper::Application.routes.draw do
   resources :fires
+  get "fires/index"
+
+  resources :FireScraper
+
+  root to: 'fires#index', as: 'fires'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
