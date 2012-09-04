@@ -14,6 +14,9 @@ gem 'mechanize'
 gem 'leaflet-rails'
 gem 'rails-timeago'
 
+# Heroku
+gem 'pg'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
