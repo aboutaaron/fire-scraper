@@ -6,36 +6,47 @@
             <% acres << fire.total_acres_burned %>
         <% end %>
         <div class="hero-unit">
-            <h1><em>Major</em> wildfires have burned <%= number_with_delimiter(acres.inject(:+)) %> acres of land in California this year.</h1>
+            <h1>Burn baby, burn.</h1>
         </div>
-        <div id="map" style="height: 400px;"></div>
-        <table id="fire-table" class="table table-bordered">
-          <thead>
-          <tr>
-            <th>Fire name <i class="icon-sort"></i></th>
-            <th>Fire county <i class="icon-sort"></i></th>
-            <th>Fire address <i class="icon-sort"></i></th>
-            <th>Acres burned <i class="icon-sort"></i></th>
-            <th>Containment <i class="icon-sort"></i></th>
-            <th>Date started <i class="icon-sort"></i></th>
-            <th>Last date updated <i class="icon-sort"></i></th>
-          </tr>
-          </thead>
+        <div class="row">
+            <div class="span6">
+                <div id="map" style="height: 600px;"></div>
+            </div>
+            <div class="span6">
+                <h1>Major</em> wildfires have burned <%= number_with_delimiter(acres.inject(:+)) %> acres of land in California this year.</h1>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="span12">
+            <table id="fire-table" class="table table-bordered">
+              <thead>
+              <tr>
+                <th>Fire name <i class="icon-sort"></i></th>
+                <th>Fire county <i class="icon-sort"></i></th>
+                <th>Fire address <i class="icon-sort"></i></th>
+                <th>Acres burned <i class="icon-sort"></i></th>
+                <th>Containment <i class="icon-sort"></i></th>
+                <th>Date started <i class="icon-sort"></i></th>
+                <th>Last date updated <i class="icon-sort"></i></th>
+              </tr>
+              </thead>
 
-          <tbody>
-        <% @fires.each do |fire| %>
-          <% not_available = "Information not available" %>
-          <tr>
-            <td><i class="icon-fire"></i> <%= fire.fire_name %></td>
-            <td><%= fire.fire_county %></td>
-            <td><%= fire.fire_address %></td>
-            <td><%= fire.total_acres_burned == 0 ? not_available : number_with_delimiter(fire.total_acres_burned) %></td>
-            <td><%= fire.fire_contained %></td>
-            <td><%= fire.date_fires_started %></td>
-            <td><%= fire.last_date_fire_updated %></td>
-          </tr>
-        <% end %>
-          </tbody>
-        </table>
+                <tbody>
+                <% @fires.each do |fire| %>
+                  <% not_available = "Information not available" %>
+                  <tr>
+                    <td><i class="icon-fire"></i> <%= fire.fire_name %></td>
+                    <td><%= fire.fire_county %></td>
+                    <td><%= fire.fire_address %></td>
+                    <td><%= fire.total_acres_burned == 0 ? not_available : number_with_delimiter(fire.total_acres_burned) %></td>
+                    <td><%= fire.fire_contained %></td>
+                    <td><%= fire.date_fires_started %></td>
+                    <td><%= fire.last_date_fire_updated %></td>
+                  </tr>
+                <% end %>
+                </tbody>
+            </table>
+        </div>
     </div>
 </div>
