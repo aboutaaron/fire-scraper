@@ -5,14 +5,12 @@ gem 'rails', '3.2.8'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-# gem 'sqlite3'
+gem 'sqlite3'
 
 # For this app...
-gem 'bootstrap-sass'
 gem 'thin'
 gem 'mechanize'
-gem 'leaflet-rails'
-gem 'rails-timeago'
+gem 'jquery-tablesorter'
 
 # Heroku
 gem 'pg'
@@ -22,6 +20,10 @@ gem 'pg'
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
+  gem 'font-awesome-sass-rails'
+  gem 'bootstrap-sass'
+  gem 'leaflet-rails'
+  gem 'rails-timeago'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby

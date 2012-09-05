@@ -31,7 +31,11 @@ namespace :fire do
         fire_conditions = []
 
         # Name of the header
-        a.page.search(".incident_table")[1..109].each do |fire|
+
+        ##########################
+        # Write code to ignore first value
+        ########################
+        a.page.search(".incident_table").drop(1).each do |fire|
             puts "Adding fire..."
             pyro = Fire.new
 
