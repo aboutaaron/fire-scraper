@@ -20,11 +20,11 @@ $(document).ready ->
     )
 
     # Prep the background tile layer graciously provided by stamen.com
-    stamenUrl = "http://{s}.tile.stamen.com/toner/{z}/{x}/{y}.png"
-    stamenAttribution = "Map tiles by <a href=\"http://stamen.com\">Stamen Design</a>, under <a href=\"http://creativecommons.org/licenses/by/3.0\">CC BY 3.0</a>. Data by <a href=\"http://openstreetmap.org\">OpenStreetMap</a>, under <a href=\"http://creativecommons.org/licenses/by-sa/3.0\">CC BY SA</a>."
-    stamenLayer = new L.TileLayer(stamenUrl,
+    url = "http://{s}.tile.cloudmade.com/0064577453aa486d98cec7f0ef57578f/997/256/{z}/{x}/{y}.png"
+    attribution = "Map data &copy; <a href=\"http://openstreetmap.org\">OpenStreetMap</a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"http://cloudmade.com\">CloudMade</a>"
+    stamenLayer = new L.TileLayer(url,
       maxZoom: 18
-      attribution: stamenAttribution
+      attribution: attribution
     )
 
     # Set the center on our city of angels
