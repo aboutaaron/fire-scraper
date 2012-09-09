@@ -1,0 +1,77 @@
+
+$(function() {
+
+  var attribution, center, defaultStyle, featureLayer, highlightStyle, map, onEachFeature, stamenLayer, url;
+  $("#fire-table").tablesorter();
+  map = new L.Map("map", {
+    scrollWheelZoom: false,
+    touchZoom: false,
+    doubleClickZoom: false,
+    zoomControl: false,
+    dragging: false
+  });
+  url = "http://{s}.tile.cloudmade.com/0064577453aa486d98cec7f0ef57578f/997/256/{z}/{x}/{y}.png";
+  attribution = "Map data &copy; <a href=\"http://openstreetmap.org\">OpenStreetMap</a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"http://cloudmade.com\">CloudMade</a>";
+  stamenLayer = new L.TileLayer(url, {
+    maxZoom: 18,
+    attribution: attribution
+  });
+  center = new L.LatLng(36.778261, -119.417932);
+  map.setView(center, 6);
+  map.addLayer(stamenLayer);
+  featureLayer = new L.GeoJSON();
+  defaultStyle = {
+    color: "#262626",
+    weight: 2,
+    opacity: 0.6,
+    fillOpacity: 0.1,
+    fillColor: "#262626"
+  };
+  highlightStyle = {
+    color: "#950014",
+    weight: 3,
+    opacity: 0.6,
+    fillOpacity: 0.65,
+    fillColor: "#950014"
+  };
+  onEachFeature = function(feature, layer) {
+    layer.setStyle(defaultStyle);
+    return (function(layer, properties) {
+      layer.on("mouseover", function(e) {
+        var hed, popup;
+        layer.setStyle(highlightStyle);
+        popup = $("<div></div>", {
+          id: "popup",
+          "class": "btn btn-primary",
+          css: {
+            position: "absolute",
+            bottom: "85px",
+            left: "50px",
+            zIndex: 1002,
+            backgroundColor: "white",
+            padding: "8px",
+            border: "1px solid #ccc"
+          }
+        });
+        hed = $("<div></div>", {
+          text: properties.NAME + " County" + "\n" + "No. of Fires: " + "\n" + "Acres burned: " + "\n",
+
+
+          css: {
+            fontSize: "16px",
+            marginBottom: "3px"
+          }
+        }).appendTo(popup);
+        return popup.appendTo("#map");
+      });
+      return layer.on("mouseout", function(e) {
+        layer.setStyle(defaultStyle);
+        return $("#popup").remove();
+      });
+    })(layer, feature.properties);
+  };
+  featureLayer = L.geoJson(boundaries, {
+    onEachFeature: onEachFeature
+  });
+  return map.addLayer(featureLayer);
+});

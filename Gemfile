@@ -11,6 +11,7 @@ gem 'sqlite3'
 gem 'thin'
 gem 'mechanize'
 gem 'jquery-tablesorter'
+gem 'gon'
 
 # Heroku
 gem 'pg'

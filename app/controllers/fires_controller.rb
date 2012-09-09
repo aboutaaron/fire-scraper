@@ -7,6 +7,7 @@ class FiresController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @fires }
+
     end
   end
 
@@ -79,5 +80,11 @@ class FiresController < ApplicationController
       format.html { redirect_to fires_url }
       format.json { head :no_content }
     end
+  end
+
+  # Counties
+  def county
+    @fire = Fire.fire_county
+    gon.counties = Fire.fire_county
   end
 end
