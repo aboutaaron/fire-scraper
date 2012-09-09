@@ -11,7 +11,7 @@
             </div>
             <article class="span5">
                     <h1 class="lead">
-                        Wildfires continue to strike California; <span id="robo-text"><%= @fires.length %></span> this year.
+                        Wildfires continue to strike California; <span id="robo-text"><%= @fires.length %></span> this year
                     </h1>
                     <p class="byline">
                         By <span class="author"><%= Rails.application.class.parent_name %></span class="author"> | Last updated: <time id="robo-text"><%= @fires.first.last_date_fire_updated %></time>
@@ -20,7 +20,7 @@
                         Over <span id="robo-text"><%= number_with_delimiter(acres.inject(:+)) %></span> acres of land have caught fire this year, according to data released from the California Department of Forestry and Fire Protection. Most recently, a fire happened in <span id="robo-text"><%= @fires.first.fire_county %></span> on <span id="robo-text"><%= @fires.first.date_fires_started %></span>.
                     </p>
                     <p>
-                        This is the nut graph.
+                        Of the acres burned from wildfires in the U.S., California has accounted for <span id="robo-text"><%= number_to_percentage((acres.inject(:+).to_f / us_fire_totals.to_f)*100.0) %></span> of acres burned. To date, the U.S. has had <span id="robo-text"><%=  number_with_delimiter(us_fire_totals) %></span> acres burned.
                     </p>
             </article>
         </div>
