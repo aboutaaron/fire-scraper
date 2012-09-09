@@ -1,20 +1,28 @@
+<% acres = [] %>
+<% @fires.each do |fire| %>
+    <% acres << fire.total_acres_burned %>
+<% end %>
+
 <div class="row">
     <div class="span12">
-        <br><br>
-        <% acres = [] %>
-        <% @fires.each do |fire| %>
-            <% acres << fire.total_acres_burned %>
-        <% end %>
-        <div class="hero-unit hidden-phone">
-            <h1>Burn baby, burn.</h1>
-        </div>
         <div class="row">
-            <div class="span8">
+            <div class="span7">
                 <div id="map" style="height: 600px;"></div>
             </div>
-            <div class="span4">
-                <h1>There have been <%= @fires.length %> major fires in California this year. These fires have burned <%= number_with_delimiter(acres.inject(:+)) %> acres of land.</h1>
-            </div>
+            <article class="span5">
+                    <h1 class="lead">
+                        Wildfires continue to strike California; <span id="robo-text"><%= @fires.length %></span> this year.
+                    </h1>
+                    <p class="byline">
+                        By <span class="author"><%= Rails.application.class.parent_name %></span class="author"> | Last updated: <time id="robo-text"><%= @fires.first.last_date_fire_updated %></time>
+                    </p>
+                    <p>
+                        Over <span id="robo-text"><%= number_with_delimiter(acres.inject(:+)) %></span> acres of land have caught fire this year, according to data released from the California Department of Forestry and Fire Protection. Most recently, a fire happened in <span id="robo-text"><%= @fires.first.fire_county %></span> on <span id="robo-text"><%= @fires.first.date_fires_started %></span>.
+                    </p>
+                    <p>
+                        This is the nut graph.
+                    </p>
+            </article>
         </div>
         <table id="fire-table" class="table table-bordered">
             <thead>
