@@ -20,7 +20,10 @@
                         Over <span id="robo-text"><%= number_with_delimiter(acres.inject(:+)) %></span> acres of land have caught fire this year, according to data released from the California Department of Forestry and Fire Protection. Most recently, a fire happened in <span id="robo-text"><%= @fires.first.fire_county %></span> on <span id="robo-text"><%= @fires.first.date_fires_started %></span>.
                     </p>
                     <p>
-                        Of the acres burned from wildfires in the U.S., California has accounted for <span id="robo-text"><%= number_to_percentage((acres.inject(:+).to_f / us_fire_totals.to_f)*100.0) %></span> of acres burned. To date, the U.S. has had <span id="robo-text"><%=  number_with_delimiter(us_fire_totals) %></span> acres burned.
+                        As of <span id="robo-text"><%= date_of_fire_stats %></span> &mdash; which is the most recent data avaiable &mdash; the United States has had <span id="robo-text"><%= number_with_delimiter(number_of_fires_in_usa_to_date) %></span> fires according to data from the National Climate and Data Center.
+                    </p>
+                    <p>
+                        Of the acres burned from wildfires in the U.S., California has accounted for <span id="robo-text"><%= number_to_percentage((acres.inject(:+).to_f / total_acres_burned_usa_to_date.to_f)*100.0) %></span> of acres burned. To date, the U.S. has had <span id="robo-text"><%=  number_with_delimiter(total_acres_burned_usa_to_date) %></span> acres burned.
                     </p>
             </article>
         </div>

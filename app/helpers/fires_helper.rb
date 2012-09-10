@@ -1,8 +1,24 @@
 module FiresHelper
-    def us_fire_totals
-        require "mechanize"
+    require "mechanize"
+
+    # Date of data set
+    def date_of_fire_stats
+        a = Mechanize.new
+        a.get("http://www.ncdc.noaa.gov/sotc/fire/")
+        a.page.search("h1").text.gsub("State of the ClimateWildfires","")
+    end
+
+    # Total Acres burned in USA to date
+    def total_acres_burned_usa_to_date
         a = Mechanize.new
         a.get("http://www.ncdc.noaa.gov/sotc/fire/")
         a.page.search("#ytd-fire-stats tr td")[0].text.gsub(",","").to_i
+    end
+
+    # Total number of fires in USA to date
+    def number_of_fires_in_usa_to_date
+        a = Mechanize.new
+        a.get("http://www.ncdc.noaa.gov/sotc/fire/")
+        a.page.search("#ytd-fire-stats tr td")[6].text.gsub(",","").to_i
     end
 end
