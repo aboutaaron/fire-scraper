@@ -48,9 +48,6 @@ GEM
     font-awesome-sass-rails (2.0.0.0)
       railties (>= 3.1.1)
       sass-rails (>= 3.1.1)
-    gon (4.0.0)
-      actionpack (>= 2.3.0)
-      json
     hike (1.2.1)
     i18n (0.6.1)
     journey (1.0.4)
@@ -96,9 +93,6 @@ GEM
       activesupport (= 3.2.8)
       bundler (~> 1.0)
       railties (= 3.2.8)
-    rails-timeago (1.4.2)
-      actionpack (>= 3.1)
-      activesupport (>= 3.1)
     railties (3.2.8)
       actionpack (= 3.2.8)
       activesupport (= 3.2.8)
@@ -144,14 +138,12 @@ DEPENDENCIES
   bootstrap-sass
   coffee-rails (~> 3.2.1)
   font-awesome-sass-rails
-  gon
   jquery-rails
   jquery-tablesorter
   leaflet-rails
   mechanize
   pg
   rails (= 3.2.8)
-  rails-timeago
   sass-rails (~> 3.2.3)
   sqlite3
   thin

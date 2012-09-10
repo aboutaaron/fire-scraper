@@ -12,13 +12,13 @@
                         By <span class="author"><%= Rails.application.class.parent_name %></span class="author"> | Last updated: <time id="robo-text"><%= @fires.first.last_date_fire_updated %></time>
                     </span>
                     <p>
-                        Over <span id="robo-text"><%= number_with_delimiter(acres) %></span> acres of land have caught fire this year, according to data released from the California Department of Forestry and Fire Protection. Most recently, a fire happened in <span id="robo-text"><%= @fires.first.fire_county %></span> on <span id="robo-text"><%= @fires.first.date_fires_started %></span>.
+                        Over <span id="robo-text"><%= number_with_delimiter(acres) %></span> acres of land have caught fire in California this year, according to data released from the California Department of Forestry and Fire Protection. Most recently, a fire happened in <span id="robo-text"><%= @fires.first.fire_county %></span> on <span id="robo-text"><%= @fires.first.date_fires_started %></span>.
                     </p>
                     <p>
-                        As of <span id="robo-text"><%= date_of_fire_stats %></span> &mdash; which is the most recent data avaiable &mdash; the United States has had <span id="robo-text"><%= number_with_delimiter(number_of_fires_in_usa_to_date) %></span> fires according to data from the National Climate and Data Center.
+                        As of <span id="robo-text"><%= raw "date_of_fire_stats" %></span> &mdash; which is the most recent data avaiable &mdash; the United States has had <span id="robo-text"><%= raw "number_with_delimiter(number_of_fires_in_usa_to_date)" %></span> fires according to data from the National Climate and Data Center.
                     </p>
                     <p>
-                        Of the acres burned from wildfires in the U.S., California has accounted for <span id="robo-text"><%= number_to_percentage((acres.to_f / total_acres_burned_usa_to_date.to_f)*100.0) %></span> of acres burned. To date, the U.S. has had <span id="robo-text"><%=  number_with_delimiter(total_acres_burned_usa_to_date) %></span> acres burned.
+                        Of the acres burned from wildfires in the U.S., California has accounted for <span id="robo-text"><%= raw "number_to_percentage((acres.to_f / total_acres_burned_usa_to_date.to_f)*100.0)" %></span> of acres burned. To date, the U.S. has had <span id="robo-text"><%=  raw "number_with_delimiter(total_acres_burned_usa_to_date)" %></span> acres burned.
                     </p>
             </article>
         </div>

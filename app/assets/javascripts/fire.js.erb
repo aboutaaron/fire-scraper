@@ -1,9 +1,8 @@
-
-
+/*
 $(function() {
-
-  var attribution, center, defaultStyle, featureLayer, highlightStyle, map, onEachFeature, stamenLayer, url;
+  var center, defaultStyle, featureLayer, highlightStyle, layer, map, mobileMediaQuery, onEachFeature;
   $("#fire-table").tablesorter();
+  mobileMediaQuery = window.matchMedia("(max-width: 767px)");
   map = new L.Map("map", {
     scrollWheelZoom: false,
     touchZoom: false,
@@ -11,15 +10,10 @@ $(function() {
     zoomControl: false,
     dragging: false
   });
-  url = "http://{s}.tile.cloudmade.com/0064577453aa486d98cec7f0ef57578f/997/256/{z}/{x}/{y}.png";
-  attribution = "Map data &copy; <a href=\"http://openstreetmap.org\">OpenStreetMap</a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"http://cloudmade.com\">CloudMade</a>";
-  stamenLayer = new L.TileLayer(url, {
-    maxZoom: 18,
-    attribution: attribution
-  });
+  layer = new L.StamenTileLayer("terrain");
   center = new L.LatLng(36.778261, -119.417932);
   map.setView(center, 6);
-  map.addLayer(stamenLayer);
+  map.addLayer(layer);
   featureLayer = new L.GeoJSON();
   defaultStyle = {
     color: "#262626",
@@ -43,7 +37,7 @@ $(function() {
         layer.setStyle(highlightStyle);
         popup = $("<div></div>", {
           id: "popup",
-          "class": "pop-up",
+          "class": "howdy",
           css: {
             position: "absolute",
             bottom: "85px",
@@ -56,8 +50,6 @@ $(function() {
         });
         hed = $("<div></div>", {
           text: properties.NAME + " County",
-
-
           css: {
             fontSize: "16px",
             marginBottom: "3px"
@@ -76,3 +68,4 @@ $(function() {
   });
   return map.addLayer(featureLayer);
 });
+*/

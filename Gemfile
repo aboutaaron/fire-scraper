@@ -11,7 +11,6 @@ gem 'sqlite3'
 gem 'thin'
 gem 'mechanize'
 gem 'jquery-tablesorter'
-gem 'gon'
 
 # Heroku
 gem 'pg'
@@ -24,7 +23,6 @@ group :assets do
   gem 'font-awesome-sass-rails'
   gem 'bootstrap-sass'
   gem 'leaflet-rails'
-  gem 'rails-timeago'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby

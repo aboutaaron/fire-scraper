@@ -2,11 +2,14 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
-###
-
 $ ->
     # Tablesorter
     $("#fire-table").tablesorter()
+
+    # Setting media query
+    # Not working, but potentional is here
+    mobileMediaQuery = window.matchMedia("(max-width: 767px)")
+
 
     # Leaflet
     # Initialize the map object
@@ -21,20 +24,16 @@ $ ->
       dragging: false
     )
 
-    # Prep the background tile layer graciously provided by stamen.com
-    url = "http://{s}.tile.cloudmade.com/0064577453aa486d98cec7f0ef57578f/997/256/{z}/{x}/{y}.png"
-    attribution = "Map data &copy; <a href=\"http://openstreetmap.org\">OpenStreetMap</a> contributors, <a href=\"http://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"http://cloudmade.com\">CloudMade</a>"
-    stamenLayer = new L.TileLayer(url,
-      maxZoom: 18
-      attribution: attribution
-    )
+    # Stamen Layer
+    # http://maps.stamen.com/#toner/12/37.7706/-122.3782
+    layer = new L.StamenTileLayer("terrain")
 
-    # Set the center on our city of angels
+    # Set the center to California
     center = new L.LatLng(36.778261,-119.417932)
     map.setView center, 6
 
     # Load the background tiles
-    map.addLayer stamenLayer
+    map.addLayer layer
 
     # Create an empty layer where we will load the polygons
     featureLayer = new L.GeoJSON()
@@ -126,5 +125,3 @@ $ ->
 
     # Finally, add the layer to the map.
     map.addLayer featureLayer
-
-    ###
