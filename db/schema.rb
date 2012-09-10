@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120904061604) do
+ActiveRecord::Schema.define(:version => 20120910035154) do
 
   create_table "fires", :force => true do |t|
     t.string   "fire_name"
