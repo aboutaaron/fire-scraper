@@ -2,6 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
+
 $ ->
     # Tablesorter
     $("#fire-table").tablesorter()
@@ -17,11 +18,11 @@ $ ->
 
       # Some basic options to keep the map still and prevent
       # the user from zooming and such.
-      scrollWheelZoom: false
-      touchZoom: false
-      doubleClickZoom: false
-      zoomControl: false
-      dragging: false
+      scrollWheelZoom: true
+      touchZoom: true
+      doubleClickZoom: true
+      zoomControl: true
+      dragging: true
     )
 
     # Stamen Layer
@@ -29,7 +30,7 @@ $ ->
     layer = new L.StamenTileLayer("terrain")
 
     # Set the center to California
-    center = new L.LatLng(36.778261,-119.417932)
+    center = new L.LatLng(37.5,-118.4)
     map.setView center, 6
 
     # Load the background tiles
@@ -64,57 +65,6 @@ $ ->
       # Load the default style.
       layer.setStyle defaultStyle
 
-      # Create a self-invoking function that passes in the layer
-      # and the properties associated with this particular record.
-      ((layer, properties) ->
-
-        # Create a mouseover event
-        layer.on "mouseover", (e) ->
-
-          # Change the style to the highlighted version
-          layer.setStyle highlightStyle
-
-          # Create a popup with a unique ID linked to this record
-          popup = $("<div></div>",
-            id: "popup"
-            class: "howdy"
-            css:
-              position: "absolute"
-              bottom: "85px"
-              left: "50px"
-              zIndex: 1002
-              backgroundColor: "white"
-              padding: "8px"
-              border: "1px solid #ccc"
-          )
-
-          # Insert a headline into that popup
-          hed = $("<div></div>",
-            text: properties.NAME + " County"
-            css:
-              fontSize: "16px"
-              marginBottom: "3px"
-          ).appendTo(popup)
-
-          # Add the popup to the map
-          popup.appendTo "#map"
-
-
-        # Create a mouseout event that undoes the mouseover changes
-        layer.on "mouseout", (e) ->
-
-          # Start by reverting the style back
-          layer.setStyle defaultStyle
-
-          # And then destroying the popup
-          $("#popup").remove()
-
-
-      # Close the "anonymous" wrapper function, and call it while passing
-      # in the variables necessary to make the events work the way we want.
-      ) layer, feature.properties
-
-
     # Add the GeoJSON to the layer. `boundaries` is defined in the external
     # GeoJSON file that I've loaded in the <head> of this HTML document.
     featureLayer = L.geoJson(boundaries,
@@ -125,3 +75,85 @@ $ ->
 
     # Finally, add the layer to the map.
     map.addLayer featureLayer
+
+    # Setting chloropath colors
+    getColor = (d) ->
+      (if d > 10 then "#800026" else (if d > 8 then "#BD0026" else (if d > 6 then "#E31A1C" else (if d > 4 then "#FC4E2A" else (if d > 3 then "#FD8D3C" else (if d > 2 then "#FEB24C" else (if d > 1 then "#FED976" else "#FFEDA0")))))))
+
+
+    # Adding style to map
+    style = (feature) ->
+      fillColor: getColor(feature.properties.FIRES)
+      weight: 2
+      opacity: 1
+      color: "white"
+      dashArray: "0"
+      fillOpacity: 0.7
+    L.geoJson(boundaries,
+      style: style
+    ).addTo map
+
+    # Onto highlightStyle
+
+    highlightFeature = (e) ->
+      layer = e.target
+      layer.setStyle
+        weight: 5
+        color: "#666"
+        dashArray: ""
+        fillOpacity: 0.7
+
+      layer.bringToFront()  if not L.Browser.ie and not L.Browser.
+
+      info.update layer.feature.properties
+
+    # Reset the mouseout
+    resetHighlight = (e) ->
+      geojson.resetStyle e.target
+
+      info.update()
+
+    zoomToFeature = (e) ->
+      map.fitBounds e.target.getBounds()
+
+    onEachFeature = (feature, layer) ->
+      layer.on
+        mouseover: highlightFeature
+        mouseout: resetHighlight
+        click: zoomToFeature
+
+    geojson = L.geoJson(boundaries,
+      style: style
+      onEachFeature: onEachFeature
+    ).addTo(map)
+
+    # Hover pop ups
+    info = L.control()
+    info.onAdd = (map) ->
+      @_div = L.DomUtil.create("div", "info") # create a div with a class "info"
+      @update()
+      @_div
+
+
+    # method that we will use to update the control based on feature properties passed
+    info.update = (props) ->
+      @_div.innerHTML = "<h4>Wildfires in California | 2012 </h4>" + ((if props then "<b>" + props.NAME + "</b><br />" + props.FIRES + " people / mi<sup>2</sup>" else "Hover over a county"))
+
+    info.addTo map
+
+    # Legend
+    legend = L.control(position: "bottomright")
+    legend.onAdd = (map) ->
+      div = L.DomUtil.create("div", "info legend")
+      grades = [0, 1, 2, 3, 4, 6, 8, 10]
+      labels = []
+
+      # loop through our density intervals and generate a label with a colored square for each interval
+      i = 0
+
+      while i < grades.length
+        div.innerHTML += "<i style=\"background:" + getColor(grades[i] + 1) + "\"></i> " + grades[i] + ((if grades[i + 1] then "&ndash;" + grades[i + 1] + "<br>" else "+"))
+        i++
+      div
+
+    legend.addTo map
