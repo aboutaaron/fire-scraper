@@ -8,9 +8,9 @@
                     <h1 class="lead">
                         Wildfires continue to strike California; <span id="robo-text"><%= @fires.length %></span> this year
                     </h1>
-                    <p class="byline">
+                    <span class="byline">
                         By <span class="author"><%= Rails.application.class.parent_name %></span class="author"> | Last updated: <time id="robo-text"><%= @fires.first.last_date_fire_updated %></time>
-                    </p>
+                    </span>
                     <p>
                         Over <span id="robo-text"><%= number_with_delimiter(acres) %></span> acres of land have caught fire this year, according to data released from the California Department of Forestry and Fire Protection. Most recently, a fire happened in <span id="robo-text"><%= @fires.first.fire_county %></span> on <span id="robo-text"><%= @fires.first.date_fires_started %></span>.
                     </p>
@@ -29,7 +29,7 @@
                     <th>Fire county <i class="icon-sort"></i></th>
                     <th class="hidden-phone">Fire address <i class="icon-sort"></i></th>
                     <th>Acres burned <i class="icon-sort"></i></th>
-                    <th>Containment <i class="icon-sort"></i></th>
+                    <th>Status <i class="icon-sort"></i></th>
                     <th>Date started <i class="icon-sort"></i></th>
                     <th class="hidden-phone">Last date updated <i class="icon-sort"></i></th>
                 </tr>
