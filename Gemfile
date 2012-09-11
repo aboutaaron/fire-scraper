@@ -12,6 +12,7 @@ group :production do
 end
 
 gem 'taps'
+gem 'heroku'
 
 # For this app...
 gem 'thin'
