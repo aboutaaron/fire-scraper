@@ -13,6 +13,8 @@ group :production do
   gem 'pg'
 end
 
+gem 'taps'
+
 # For this app...
 gem 'thin'
 gem 'mechanize'

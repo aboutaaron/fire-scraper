@@ -13,6 +13,5 @@
 //= require jquery
 //= require jquery_ujs
 //= require leaflet
-//= require rails-timeago
 //= require jquery-tablesorter
 //= require_tree .
