@@ -1,4 +1,8 @@
 class FiresController < ApplicationController
+
+  # Caching
+  caches_page :index
+
   # GET /fires
   # GET /fires.json
   def index
