@@ -1,4 +1,6 @@
 FireScraper::Application.routes.draw do
+  resources :counties
+
   resources :fires
   get "fires/index"
 
