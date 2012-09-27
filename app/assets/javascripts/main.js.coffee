@@ -1,0 +1,2 @@
+$ ->
+    $("#fire-table").tablesorter()
