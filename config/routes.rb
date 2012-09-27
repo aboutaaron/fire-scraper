@@ -1,12 +1,10 @@
 FireScraper::Application.routes.draw do
   resources :counties
-
-  resources :fires
-  get "fires/index"
+  get "counties/index"
 
   resources :FireScraper
 
-  root to: 'fires#index', as: 'fires'
+  root to: 'counties#index', as: 'counties'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

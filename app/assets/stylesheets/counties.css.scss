@@ -1,3 +1,74 @@
 // Place all the styles related to the Counties controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+@import "bootstrap/variables"; // Modify this for custom colors, font-sizes, etc
+
+// App Variables
+// =============
+
+$font-size: 18px;
+
+// Global Styles
+// =============
+
+body {
+  padding-top: 60px;
+}
+
+@media (max-width: 979px) {
+  body {
+    padding-top: 0px;
+  }
+}
+
+// Nav Styles
+
+#logo {
+    height: 0;
+
+    .icon-fire {
+        margin-top: 10px;
+    }
+}
+
+.twitter-follow-button {
+    margin-top: 10px;
+}
+
+// Story Styles
+// =============
+
+.byline {
+
+    font-size: $font-size + 2;
+
+    time {
+        font: italic $font-size "Helvetica Neue," Helvetica, san-serif;
+        color: $red;
+    }
+
+    .author {
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+}
+
+article {
+    p {
+        margin-top: $baseLineHeight;
+        font-size: $font-size;
+        line-height: $baseLineHeight + 10;
+    }
+
+    #robo-text {
+        border-bottom: 1.5px $blue dotted;
+    }
+}
+
+// Table Styles
+// =============
+
+table {
+    font-size: 16px;
+}
