@@ -1,20 +1,24 @@
 <h1>Listing counties</h1>
 
-<table class="table table-bordered">
-  <tr>
-    <th>Name</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<table id="counties" class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
 
 <% @counties.each do |county| %>
-  <tr>
-    <td><%= county.name %></td>
-    <td><%= link_to 'Show', county %></td>
-    <td><%= link_to 'Edit', edit_county_path(county) %></td>
-    <td><%= link_to 'Destroy', county, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+  <tbody>
+    <tr>
+      <td><%= county.name %></td>
+      <td><%= link_to 'Show', county %></td>
+      <td><%= link_to 'Edit', edit_county_path(county) %></td>
+      <td><%= link_to 'Destroy', county, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  </tbody>
 <% end %>
 </table>
 
