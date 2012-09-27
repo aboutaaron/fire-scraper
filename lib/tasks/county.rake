@@ -20,10 +20,4 @@ namespace :county do
             end
         end
     end
-    desc "grab fires from CAL FIRE website"
-    task :fires => do
-        a = Mechanize.new
-        a.get("http://cdfdata.fire.ca.gov/incidents/incidents_current?sort=incident_priority&pc=all")
-
-    end
 end

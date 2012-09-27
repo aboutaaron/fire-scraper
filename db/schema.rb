@@ -11,24 +11,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120927045905) do
+ActiveRecord::Schema.define(:version => 20120927063025) do
 
   create_table "counties", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
-  end
-
-  create_table "fires", :force => true do |t|
-    t.string   "fire_name"
-    t.string   "fire_county"
-    t.string   "fire_address"
-    t.integer  "total_acres_burned"
-    t.string   "fire_contained"
-    t.string   "date_fires_started"
-    t.string   "last_date_fire_updated"
-    t.datetime "created_at",             :null => false
-    t.datetime "updated_at",             :null => false
   end
 
 end
