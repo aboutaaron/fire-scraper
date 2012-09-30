@@ -1,27 +1,31 @@
 <h1>Listing fires</h1>
 
-<table class="table table-bordered">
-  <tr>
-    <th>Name</th>
-    <th>Acerage</th>
-    <th>Date</th>
-    <th>County</th>
-    <th>Containment</th>
-    <th></th>
-    <th></th>
-  </tr>
+<table id="county-fires" class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Acerage</th>
+      <th>Date</th>
+      <th>County</th>
+      <th>Containment</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
 
 <% @fires.each do |fire| %>
-  <tr>
-    <td><%= fire.name %></td>
-    <td><%= fire.acerage %></td>
-    <td><%= fire.date %></td>
-    <td><%= fire.county_id %></td>
-    <td><%= fire.containment %>%</td>
-    <td><%= link_to 'Show', fire %></td>
-    <td><%= link_to 'Edit', edit_fire_path(fire) %></td>
-    <td><%= link_to 'Destroy', fire, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+  <tbody>
+    <tr>
+      <td><%= fire.name %></td>
+      <td><%= fire.acerage %></td>
+      <td><%= fire.date %></td>
+      <td><%= fire.county_id %></td>
+      <td><%= fire.containment %>%</td>
+      <td><%= link_to 'Show', fire %></td>
+      <td><%= link_to 'Edit', edit_fire_path(fire) %></td>
+      <td><%= link_to 'Destroy', fire, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  </tbody>
 <% end %>
 </table>
 

@@ -20,16 +20,17 @@
                   <th>Containment</th>
                 </tr>
               </thead>
+
+        <% @county.fires.each do |fire| %>
               <tbody>
                 <tr>
-                    <% @county.fires.each do |fire| %>
-                        <td><%= fire.name %></td>
-                        <td><%= fire.acerage %></td>
-                        <td><%= fire.date %></td>
-                        <td><%= fire.containment %></td>
-                    <% end %>
+                  <td><%= link_to fire.name, fire %></td>
+                  <td><%= number_with_delimiter(fire.acerage) %></td>
+                  <td><%= fire.date %></td>
+                  <td><%= fire.containment %>%</td>
                 </tr>
               </tbody>
+        <% end %>
           </table>
           <% else %>
           <div class="alert">

@@ -1,4 +1,4 @@
-<%= form_for(@fire) do |f| %>
+<%= simple_form_for(@fire) do |f| %>
   <% if @fire.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@fire.errors.count, "error") %> prohibited this fire from being saved:</h2>
@@ -11,27 +11,13 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :acerage %><br />
-    <%= f.number_field :acerage %>
-  </div>
-  <div class="field">
-    <%= f.label :date %><br />
-    <%= f.text_field :date %>
-  </div>
-  <div class="field">
-    <%= f.label :containment %><br />
-    <%= f.text_field :containment %>
-  </div>
-  <div class="field">
-    <%= f.label :county_id %><br />
-    <%= f.number_field :county_id %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
+  <%= f.input :name %>
+  <%= f.input :acerage %>
+  <%= f.input :date %>
+  <%= f.input :containment %>
+  <%= f.input :county_id, collection: County.all %>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
   </div>
 <% end %>
