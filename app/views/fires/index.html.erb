@@ -1,0 +1,29 @@
+<h1>Listing fires</h1>
+
+<table class="table table-bordered">
+  <tr>
+    <th>Name</th>
+    <th>Acerage</th>
+    <th>Date</th>
+    <th>County</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @fires.each do |fire| %>
+  <tr>
+    <td><%= fire.name %></td>
+    <td><%= fire.acerage %></td>
+    <td><%= fire.date %></td>
+    <td><%= fire.county_id %></td>
+    <td><%= link_to 'Show', fire %></td>
+    <td><%= link_to 'Edit', edit_fire_path(fire) %></td>
+    <td><%= link_to 'Destroy', fire, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Fire', new_fire_path %>

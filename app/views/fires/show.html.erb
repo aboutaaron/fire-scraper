@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @fire.name %>
+</p>
+
+<p>
+  <b>Acerage:</b>
+  <%= @fire.acerage %>
+</p>
+
+<p>
+  <b>Date:</b>
+  <%= @fire.date %>
+</p>
+
+<p>
+  <b>County:</b>
+  <%= @fire.county_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_fire_path(@fire) %> |
+<%= link_to 'Back', fires_path %>
