@@ -20,4 +20,13 @@ namespace :county do
             end
         end
     end
+    desc "retrieve fires from the CAL FIRE website"
+    task :fires => :environment do
+        a = Mechanize.new
+        a.get("http://cdfdata.fire.ca.gov/incidents/incidents_current?sort=incident_priority&pc=all")
+        a.page.search(".incident_table").drop(1).each do |fire|
+
+
+        end
+    end
 end
