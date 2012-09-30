@@ -1,10 +1,35 @@
-<p id="notice"><%= notice %></p>
+<div class="row">
+    <div class="span4">
+        <div class="page-header">
+            <h1><%= @county.name %></h1>
+            <h3><%= @county.fires.count %> Fire(s)</h3>
+            <p id="notice"><%= notice %></p>
+            <img src="http://placehold.it/400" alt="Shapefile here">
+        </div>
+    </div>
 
-<p>
-  <b>Name:</b>
-  <%= @county.name %>
-</p>
+    <div class="span8">
+        <% if @county.fires.any? %>
+          <h3><%= @county.fires.count %> Fire(s)</h3>
+          <table class="table table-condensed">
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Acres burned</th>
+                  <th>Date started</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                    <% @county.fires.each do |fire| %>
+                        <td><%= fire.name %></td>
+                        <td><%= fire.acerage %></td>
+                        <td><%= fire.date %></td>
+                    <% end %>
+                </tr>
+              </tbody>
+          </table>
 
-
-<%= link_to 'Edit', edit_county_path(@county) %> |
-<%= link_to 'Back', counties_path %>
+        <% end %>
+    </div>
+</div>
