@@ -50,6 +50,7 @@ GEM
     font-awesome-sass-rails (2.0.0.0)
       railties (>= 3.1.1)
       sass-rails (>= 3.1.1)
+    friendly_id (4.0.8)
     heroku (2.31.2)
       heroku-api (~> 0.3.4)
       launchy (>= 0.3.2)
@@ -162,6 +163,7 @@ DEPENDENCIES
   bootstrap-sass
   coffee-rails (~> 3.2.1)
   font-awesome-sass-rails
+  friendly_id
   heroku
   jquery-rails
   jquery-tablesorter
