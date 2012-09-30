@@ -25,7 +25,7 @@
               <tbody>
                 <tr>
                   <td><%= link_to fire.name, fire %></td>
-                  <td><%= fire.acreage %></td>
+                  <td><%= number_with_delimiter(fire.acreage) %></td>
                   <td><%= fire.date %></td>
                   <td><%= fire.containment %></td>
                 </tr>

@@ -86,8 +86,16 @@ namespace :county do
                 #################
                 # County location
                 #################
-                f.county_id = 1
+                @counties = County.all
+                county_name = fire.search(":nth-child(3) td:nth-child(2)").text
 
+                @counties.each do |c|
+                    if c.name = county_name
+                        f.county_id = c.id
+                    else
+                        puts "County doesn't exist?"
+                    end
+                end
 
                 # Save the bitch
                 f.save!
