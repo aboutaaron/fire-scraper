@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120930075330) do
+ActiveRecord::Schema.define(:version => 20120930214642) do
 
   create_table "counties", :force => true do |t|
     t.string   "name"
@@ -21,12 +21,12 @@ ActiveRecord::Schema.define(:version => 20120930075330) do
 
   create_table "fires", :force => true do |t|
     t.string   "name"
-    t.integer  "acerage"
+    t.integer  "acreage"
     t.string   "date"
     t.integer  "county_id"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
-    t.integer  "containment"
+    t.string   "containment"
   end
 
 end
