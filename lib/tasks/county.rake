@@ -63,9 +63,9 @@ namespace :county do
                 ##############
                 acres << notes.match(/^[,0-9]*/).to_s.gsub(',','').to_i
                 acres.each do |val|
-                    f.acerage = val
+                    f.acreage = val
                 end
-                puts "#{f.acerage} acres were burned from this fire"
+                puts "#{f.acreage} acres were burned from this fire"
 
                 ##################################
                 # Percentage of the fire contained
@@ -73,12 +73,12 @@ namespace :county do
                 attempt = notes.match(/\d%.contained|.\d\d%.contained/).to_s
                 if attempt != ""
                     percentage_contained = attempt
-                    containment << percentage_contained
+                    contained << percentage_contained
                 else
                     percentage_contained = 0
-                    containment << percentage_contained
+                    contained << percentage_contained
                 end
-                containment.each do |val|
+                contained.each do |val|
                     f.containment = val
                 end
                 puts "#{f.containment} percent of the fire was contained"
