@@ -19,6 +19,7 @@ gem 'thin'
 gem 'mechanize'
 gem 'jquery-tablesorter'
 gem 'friendly_id'
+gem 'simple_form'
 
 # Gems used only for assets and not required
 # in production environments by default.
