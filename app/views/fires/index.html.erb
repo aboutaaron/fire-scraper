@@ -6,7 +6,7 @@
     <th>Acerage</th>
     <th>Date</th>
     <th>County</th>
-    <th></th>
+    <th>Containment</th>
     <th></th>
     <th></th>
   </tr>
@@ -17,6 +17,7 @@
     <td><%= fire.acerage %></td>
     <td><%= fire.date %></td>
     <td><%= fire.county_id %></td>
+    <td><%= fire.containment %>%</td>
     <td><%= link_to 'Show', fire %></td>
     <td><%= link_to 'Edit', edit_fire_path(fire) %></td>
     <td><%= link_to 'Destroy', fire, method: :delete, data: { confirm: 'Are you sure?' } %></td>
