@@ -30,7 +30,7 @@ namespace :county do
         dates = []
         acres = []
         contained = []
-        counties = []
+        counties_arr = []
         a.page.search(".incident_table").drop(1).each do |fire|
             # New Fire instance
             f = Fire.new
@@ -86,16 +86,12 @@ namespace :county do
                 #################
                 # County location
                 #################
-                @counties = County.all
                 county_name = fire.search(":nth-child(3) td:nth-child(2)").text
-
-                @counties.each do |c|
-                    if c.name = county_name
-                        f.county_id = c.id
-                    else
-                        puts "County doesn't exist?"
-                    end
+                counties_arr << County.find_by_name(county_name).id
+                counties_arr.each do |val|
+                    f.county_id = val
                 end
+                puts "The ID was #{f.county_id}"
 
                 # Save the bitch
                 f.save!
