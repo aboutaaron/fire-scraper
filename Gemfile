@@ -29,6 +29,7 @@ group :assets do
   gem 'font-awesome-sass-rails'
   gem 'bootstrap-sass'
   gem 'leaflet-rails'
+  gem 'geocoder'
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby

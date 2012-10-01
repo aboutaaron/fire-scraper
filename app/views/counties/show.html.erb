@@ -8,13 +8,15 @@
               jQuery(document).ready(function($) {
                 var layer = new L.StamenTileLayer("terrain")
                 var map = new L.map('map', {
-                  center: new L.LatLng(36.8, -119.4),
-                  zoom: 5
+                  center: new L.LatLng(<%= @county.latitude %>, <%= @county.longitude %>),
+                  zoom: 7
                 });
                 map.addLayer(layer)
               });
             </script>
             <div id="map"></div>
+            <p>Latitude: <%= @county.latitude %></p>
+            <p>Longitude: <%= @county.longitude %></p>
         </div>
     </div>
 

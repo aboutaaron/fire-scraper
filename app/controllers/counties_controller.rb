@@ -80,4 +80,8 @@ class CountiesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  # Full Address to Geocoder
+  def full_address
+  end
 end
