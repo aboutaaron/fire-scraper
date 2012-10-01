@@ -3,5 +3,7 @@ class Fire < ActiveRecord::Base
 
   validates :acreage, :date, :name, :county_id, presence: true
 
+  validates :name, uniqueness: true
+
   belongs_to :county
 end

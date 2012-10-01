@@ -12,6 +12,20 @@
                   zoom: 7
                 });
                 map.addLayer(layer)
+
+                var geojsonFeature = {
+                  "type": "Feature",
+                  "properties": {
+                    "name": "<%= @county.name %>",
+                    "popupContent": "<%= @county.name %>has had <%= @county.fires.count %> fires."
+                  },
+                  "geometry": {
+                    "type": "Point",
+                    "coordinates": [<%= @county.latitude %>, <%= @county.longitude %>]
+                  }
+                };
+
+                L.geoJson(geojsonFeature).addTo(map);
               });
             </script>
             <div id="map"></div>
