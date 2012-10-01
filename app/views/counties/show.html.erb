@@ -4,7 +4,17 @@
             <h1><%= @county.name %></h1>
             <h3><%= @county.fires.count %> Fire(s)</h3>
             <p id="notice"><%= notice %></p>
-            <img src="http://placehold.it/400" alt="Shapefile here">
+            <script type="text/javascript">
+              jQuery(document).ready(function($) {
+                var layer = new L.StamenTileLayer("terrain")
+                var map = new L.map('map', {
+                  center: new L.LatLng(36.8, -119.4),
+                  zoom: 5
+                });
+                map.addLayer(layer)
+              });
+            </script>
+            <div id="map"></div>
         </div>
     </div>
 
