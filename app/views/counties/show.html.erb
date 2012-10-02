@@ -9,9 +9,18 @@
                 var layer = new L.StamenTileLayer("terrain")
                 var map = new L.map('map', {
                   center: new L.LatLng(<%= @county.latitude %>, <%= @county.longitude %>),
-                  zoom: 7
+                  zoom: 7,
+                  scrollWheelZoom: false,
+                  touchZoom: false,
+                  doubleClickZoom: false,
+                  zoomControl: true,
+                  dragging: true,
                 });
                 map.addLayer(layer)
+
+                poweredByStamen = new L.Control.Attribution
+                poweredByStamen.addAttribution("Map tiles by <a href='http://stamen.com'>Stamen Design</a>, under <a href='http://creativecommons.org/licenses/by/3.0'>CC BY 3.0</a>. Data by <a href='http://openstreetmap.org'>OpenStreetMap</a>, under <a href='http://creativecommons.org/licenses/by-sa/3.0'>CC BY SA</a>.")
+                map.addControl(poweredByStamen)
 
                 var geojsonFeature = {
                   "type": "Feature",
@@ -26,6 +35,9 @@
                 };
 
                 L.geoJson(geojsonFeature).addTo(map);
+
+                // Hack until i fix Leaflet attribution
+                $(".leaflet-control-attribution.leaflet-control")[1].remove();
               });
             </script>
             <div id="map"></div>

@@ -3,6 +3,10 @@ class County < ActiveRecord::Base
   validates :name, uniqueness: true, presence: true
   has_many :fires
 
-  geocoded_by :name
+  geocoded_by :full_address
   after_validation :geocode
+
+  def full_address
+    name + ", California, USA"
+  end
 end
