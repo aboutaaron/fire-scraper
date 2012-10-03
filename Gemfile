@@ -27,7 +27,7 @@ group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'font-awesome-sass-rails'
-  gem 'bootstrap-sass'
+  gem 'bootstrap-sass', '~> 2.1.0'
   gem 'leaflet-rails'
   gem 'geocoder'
 

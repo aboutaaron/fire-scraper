@@ -1,5 +1,5 @@
 <div class="row">
-    <div id="left-map-rail" class="span4" data-spy="affix" data-offset-top="5">
+    <div id="scrollSpy" class="span4" data-spy="#affix" data-offset-top="20">
         <div class="page-header">
           <h1><%= @county.name %></h1>
         </div>
@@ -47,7 +47,13 @@
 
             // Bootstrap Affix
             // http://twitter.github.com/bootstrap/javascript.html#affix
-            $("#left-map-rail").affix()
+            $("#navbar").affix()
+
+
+
+
+
+
           });
         </script>
         <div id="map"></div>
