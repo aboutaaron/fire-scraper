@@ -9,16 +9,4 @@ class County < ActiveRecord::Base
   def full_address
     name + ", California, USA"
   end
-
-  extend FriendlyId
-  friendly_id :name
-
-
-  def next
-    county.where("id > ?", id).first
-  end
-
-  def prev
-    county.where("id < ?", id).first
-  end
 end
