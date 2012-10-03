@@ -41,15 +41,20 @@
               });
             </script>
             <div id="map"></div>
-            <p>Latitude: <%= @county.latitude %></p>
-            <p>Longitude: <%= @county.longitude %></p>
+            <h4>More information:</h4>
+            <ul class="unstyled">
+              <li class="text-info">Total Acres Burned: <strong><%= total_acres_burned %></strong> </li>
+              <li class="text-info"></li>
+              <li class="text-info">Latitude: <strong><%= @county.latitude %></strong></li>
+              <li class="text-info">Longitude: <strong><%= @county.longitude %></strong></li>
+            </ul>
         </div>
     </div>
 
     <div class="span8">
         <% if @county.fires.any? %>
           <h3><%= @county.fires.count %> Fire(s)</h3>
-          <table class="table table-condensed">
+          <table class="table table-bordered table-condensed">
               <thead>
                 <tr>
                   <th>Name</th>
@@ -70,12 +75,11 @@
               </tbody>
         <% end %>
           </table>
-          <% else %>
+        <% else %>
           <div class="alert">
               <button type="button" class="close" data-dismiss="alert">×</button>
               <strong>Warning!</strong> Best check yo self, you're not looking too good.
           </div>
-
         <% end %>
     </div>
 </div>
