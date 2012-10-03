@@ -3,8 +3,8 @@
 
 Geocoder.configure do |config|
     # Geocoding service
-    config.lookup = :google
+    config.lookup = :yahoo
 
-    # Google Maps V3 API Key
-    config.api_key = "AIzaSyAp-FkgYLqaU9Vdze3UYd3X7FGC6oadfQ0"
+    # Yahoo Maps API Key
+    config.api_key = "JZaEnhnV34ElNNbBfsYgX1uVTU_XnT2vQQFvXDfbwcLHz2R9ZYoeN86XMEwQJnb_XvyoPqqTkEgf2ZBb7j.olWyr9kaBhVI-"
 end
