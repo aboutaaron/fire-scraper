@@ -1,54 +1,63 @@
 <div class="row">
-    <div class="span4">
+    <div id="left-map-rail" class="span4" data-spy="affix" data-offset-top="5">
         <div class="page-header">
-            <h1><%= @county.name %></h1>
-            <h3><%= @county.fires.count %> Fire(s)</h3>
-            <p id="notice"><%= notice %></p>
-            <script type="text/javascript">
-              jQuery(document).ready(function($) {
-                var layer = new L.StamenTileLayer("terrain")
-                var map = new L.map('map', {
-                  center: new L.LatLng(<%= @county.latitude %>, <%= @county.longitude %>),
-                  zoom: 7,
-                  scrollWheelZoom: false,
-                  touchZoom: false,
-                  doubleClickZoom: false,
-                  zoomControl: true,
-                  dragging: true,
-                });
-                map.addLayer(layer)
-
-                poweredByStamen = new L.Control.Attribution
-                poweredByStamen.addAttribution("Map tiles by <a href='http://stamen.com'>Stamen Design</a>, under <a href='http://creativecommons.org/licenses/by/3.0'>CC BY 3.0</a>. Data by <a href='http://openstreetmap.org'>OpenStreetMap</a>, under <a href='http://creativecommons.org/licenses/by-sa/3.0'>CC BY SA</a>.")
-                map.addControl(poweredByStamen)
-
-                var geojsonFeature = {
-                  "type": "Feature",
-                  "properties": {
-                    "name": "<%= @county.name %>",
-                    "popupContent": "<%= @county.name %>has had <%= @county.fires.count %> fires."
-                  },
-                  "geometry": {
-                    "type": "Point",
-                    "coordinates": [<%= @county.latitude %>, <%= @county.longitude %>]
-                  }
-                };
-
-                L.geoJson(geojsonFeature).addTo(map);
-
-                // Hack until i fix Leaflet attribution
-                $(".leaflet-control-attribution.leaflet-control")[1].remove();
-              });
-            </script>
-            <div id="map"></div>
-            <h4>More information:</h4>
-            <ul class="unstyled">
-              <li class="text-info">Total Acres Burned: <strong><%= total_acres_burned %></strong> </li>
-              <li class="text-info"></li>
-              <li class="text-info">Latitude: <strong><%= @county.latitude %></strong></li>
-              <li class="text-info">Longitude: <strong><%= @county.longitude %></strong></li>
-            </ul>
+          <h1><%= @county.name %></h1>
         </div>
+        <h3><%= @county.fires.count %> Fire(s)</h3>
+        <p id="notice"><%= notice %></p>
+        <script type="text/javascript">
+          jQuery(document).ready(function($) {
+
+            // Map Setup
+            var layer = new L.StamenTileLayer("terrain")
+            var map = new L.map('map', {
+              center: new L.LatLng(<%= @county.latitude %>, <%= @county.longitude %>),
+              zoom: 7,
+              scrollWheelZoom: false,
+              touchZoom: false,
+              doubleClickZoom: false,
+              zoomControl: false,
+              dragging: false,
+            });
+            map.addLayer(layer)
+
+            // Adding Stamen attribution
+            poweredByStamen = new L.Control.Attribution
+            poweredByStamen.addAttribution("Map tiles by <a href='http://stamen.com'>Stamen Design</a>, under <a href='http://creativecommons.org/licenses/by/3.0'>CC BY 3.0</a>. Data by <a href='http://openstreetmap.org'>OpenStreetMap</a>, under <a href='http://creativecommons.org/licenses/by-sa/3.0'>CC BY SA</a>.")
+            map.addControl(poweredByStamen)
+
+            // Demo GeoJSON
+            var geojsonFeature = {
+              "type": "Feature",
+              "properties": {
+                "name": "<%= @county.name %>",
+                "popupContent": "<%= @county.name %>has had <%= @county.fires.count %> fires."
+              },
+              "geometry": {
+                "type": "Point",
+                "coordinates": [<%= @county.latitude %>, <%= @county.longitude %>]
+              }
+            };
+
+            // L.geoJson(boundaries).addTo(map)
+
+            // Hack until i fix Leaflet attribution
+            $(".leaflet-control-attribution.leaflet-control")[1].remove();
+
+
+            // Bootstrap Affix
+            // http://twitter.github.com/bootstrap/javascript.html#affix
+            $("#left-map-rail").affix()
+          });
+        </script>
+        <div id="map"></div>
+        <h4>More information:</h4>
+        <ul class="unstyled">
+          <li class="text-info">Total Acres Burned: <strong><%= total_acres_burned %></strong> </li>
+          <li class="text-info"></li>
+          <li class="text-info">Latitude: <strong><%= @county.latitude %></strong></li>
+          <li class="text-info">Longitude: <strong><%= @county.longitude %></strong></li>
+        </ul>
     </div>
 
     <div class="span8">

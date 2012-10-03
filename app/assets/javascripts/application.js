@@ -14,4 +14,5 @@
 //= require jquery_ujs
 //= require leaflet
 //= require jquery-tablesorter
+//= require bootstrap
 //= require_tree .
