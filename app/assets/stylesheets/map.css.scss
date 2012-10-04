@@ -2,9 +2,27 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#map { height: 400px; }
+@import 'bootstrap/variables';
 
-.affix {
-    top: 20px;
-    left: 0px;
+.icon-fire {
+    font-size: $baseFontSize * 10;
+    color: $red;
+    display: block;
+}
+
+#fire-number {
+    font-size: $baseFontSize * 10;
+    display: inline-block;
+}
+
+.fire-link {
+    margin-top: 46px;
+
+    a {
+        color: $orange;
+
+        :hover {
+            color: darken($orange, 15%)
+        }
+    }
 }

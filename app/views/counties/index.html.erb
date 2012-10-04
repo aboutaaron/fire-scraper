@@ -1,28 +1,14 @@
-<h1>Listing counties (<%= @counties.count %>)</h1>
-<h2>Total fires (<%= total_fires_ignited %>)</h2>
-
-<table id="counties" class="table table-bordered">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-<% @counties.each do |county| %>
-  <tbody>
-    <tr>
-      <td><%= county.name %></td>
-      <td><%= link_to 'Show', county %></td>
-      <td><%= link_to 'Edit', edit_county_path(county) %></td>
-      <td><%= link_to 'Destroy', county, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    </tr>
-  </tbody>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New County', new_county_path, class: "btn" %>
+<div class="row">
+  <div class="page-header">
+    <h1>Listing counties (<%= @counties.count %>)</h1>
+    <h2>Total fires (<%= total_fires_ignited %>)</h2>
+  </div>
+  <% @counties.each do |county| %>
+    <div class="span4">
+      <div class="well">
+      <i class="icon-fire"></i><span id="fire-number"><%= county.fires.count %></span>
+      <h3 class="fire-link"><%= link_to county.name, county %></h3>
+      </div>
+    </div>
+  <% end %>
+</div>
