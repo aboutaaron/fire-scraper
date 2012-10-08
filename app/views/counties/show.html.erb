@@ -33,9 +33,12 @@
 
 
             // GeoJSON
+            var arr = []
             for(var i=0; i < boundaries.features.length; i++){
-              console.log(boundaries.features[i].properties.NAME + " " + boundaries.features[i].properties.LSAD_TRANS + " ");
+              arr.push(boundaries.features[i].properties.NAME + " " + boundaries.features[i].properties.LSAD_TRANS + " ")
+              //console.log(boundaries.features[i].properties.NAME + " " + boundaries.features[i].properties.LSAD_TRANS + " ");
             }
+            console.log(arr)
 
             function style(feature) {
                 return {
