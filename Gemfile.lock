@@ -76,6 +76,8 @@ GEM
       i18n (>= 0.4.0)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    masonry-rails (0.1.8)
+      rails
     mechanize (2.5.1)
       domain_name (~> 0.5, >= 0.5.1)
       mime-types (~> 1.17, >= 1.17.2)
@@ -173,6 +175,7 @@ DEPENDENCIES
   jquery-rails
   jquery-tablesorter
   leaflet-rails
+  masonry-rails
   mechanize
   pg
   rails (= 3.2.8)

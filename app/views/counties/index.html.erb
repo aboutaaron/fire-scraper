@@ -5,7 +5,7 @@
   </div>
   <div class="span12">
     <% @counties.each do |county| %>
-      <div class="county">
+      <div class="county well">
         <i class="icon-fire"></i><span id="fire-number"><%= county.fires.count %></span><h3 class="fire-link"><%= link_to county.name, county %></h3>
       </div>
     <% end %>

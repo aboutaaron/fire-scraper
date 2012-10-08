@@ -11,8 +11,6 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
-//= require jquery_ujs
 //= require leaflet
 //= require jquery-tablesorter
-//= require bootstrap-affix
 //= require_tree .
