@@ -3,7 +3,6 @@
         <div class="page-header">
           <h1><%= @county.name %></h1>
         </div>
-        <h3><%= @county.fires.count %> Fire(s)</h3>
         <p id="notice"><%= notice %></p>
         <script type="text/javascript">
           jQuery(document).ready(function($) {
@@ -22,37 +21,34 @@
             map.addLayer(layer)
 
             // Adding Stamen attribution
-            poweredByStamen = new L.Control.Attribution
-            poweredByStamen.addAttribution("Map tiles by <a href='http://stamen.com'>Stamen Design</a>, under <a href='http://creativecommons.org/licenses/by/3.0'>CC BY 3.0</a>. Data by <a href='http://openstreetmap.org'>OpenStreetMap</a>, under <a href='http://creativecommons.org/licenses/by-sa/3.0'>CC BY SA</a>.")
-            map.addControl(poweredByStamen)
+            //poweredByStamen = new L.Control.Attribution
+            //poweredByStamen.addAttribution("Map tiles by <a href='http://stamen.com'>Stamen Design</a>, under <a href='http://creativecommons.org/licenses/by/3.0'>CC BY 3.0</a>. Data by <a href='http://openstreetmap.org'>OpenStreetMap</a>, under <a href='http://creativecommons.org/licenses/by-sa/3.0'>CC BY SA</a>.")
+            //map.addControl(poweredByStamen)
 
-            // Demo GeoJSON
-            var geojsonFeature = {
-              "type": "Feature",
-              "properties": {
-                "name": "<%= @county.name %>",
-                "popupContent": "<%= @county.name %>has had <%= @county.fires.count %> fires."
-              },
-              "geometry": {
-                "type": "Point",
-                "coordinates": [<%= @county.latitude %>, <%= @county.longitude %>]
-              }
-            };
 
             // L.geoJson(boundaries).addTo(map)
 
             // Hack until i fix Leaflet attribution
-            $(".leaflet-control-attribution.leaflet-control")[1].remove();
+            //$(".leaflet-control-attribution.leaflet-control")[1].remove();
 
 
-            // Bootstrap Affix
-            // http://twitter.github.com/bootstrap/javascript.html#affix
-            $("#navbar").affix()
+            // GeoJSON
+            for(var i=0; i < boundaries.features.length; i++){
+              console.log(boundaries.features[i].properties.NAME + " " + boundaries.features[i].properties.LSAD_TRANS + " ");
+            }
 
+            function style(feature) {
+                return {
+                    fillColor: '#9d261d',
+                    weight: 2,
+                    opacity: 1,
+                    color: 'white',
+                    dashArray: '3',
+                    fillOpacity: 0.4
+                };
+            }
 
-
-
-
+            geojson = L.geoJson(boundaries.features, {style:style}).addTo(map);
 
           });
         </script>
@@ -66,9 +62,9 @@
         </ul>
     </div>
 
-    <div class="span8">
+    <div class="span8" id="county-fires">
         <% if @county.fires.any? %>
-          <h3><%= @county.fires.count %> Fire(s)</h3>
+          <h3><%= @county.fires.count %> fires | <%= total_acres_burned %> acres burned</h3>
           <table class="table table-bordered table-condensed">
               <thead>
                 <tr>

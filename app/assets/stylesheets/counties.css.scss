@@ -22,55 +22,15 @@ body {
   }
 }
 
-// Nav Styles
-
-#logo {
-    height: 0;
-
-    .icon-fire {
-        margin-top: 10px;
-    }
-}
-
-.twitter-follow-button {
-    margin-top: 10px;
-}
-
-// Story Styles
-// =============
-
-.byline {
-
-    font-size: $font-size + 2;
-
-    time {
-        font: italic $font-size "Helvetica Neue," Helvetica, san-serif;
-        color: $red;
-    }
-
-    .author {
-        text-transform: uppercase;
-        font-weight: bold;
-    }
-}
-
-article {
-    p {
-        margin-top: $baseLineHeight;
-        font-size: $font-size;
-        line-height: $baseLineHeight + 10;
-    }
-
-    #robo-text {
-        border-bottom: 1.5px $blue dotted;
-    }
-}
-
 // Table Styles
 // =============
 
 table {
     font-size: 16px;
+}
+
+#county-fires {
+    margin-top: 19px;
 }
 
 #map { height: 400px; }

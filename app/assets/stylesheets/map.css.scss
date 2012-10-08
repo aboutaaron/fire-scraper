@@ -3,26 +3,3 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 @import 'bootstrap/variables';
-
-.icon-fire {
-    font-size: $baseFontSize * 10;
-    color: $red;
-    display: block;
-}
-
-#fire-number {
-    font-size: $baseFontSize * 10;
-    display: inline-block;
-}
-
-.fire-link {
-    margin-top: 46px;
-
-    a {
-        color: $orange;
-
-        :hover {
-            color: darken($orange, 15%)
-        }
-    }
-}

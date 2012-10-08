@@ -3,12 +3,11 @@
     <h1>Listing counties (<%= @counties.count %>)</h1>
     <h2>Total fires (<%= total_fires_ignited %>)</h2>
   </div>
-  <% @counties.each do |county| %>
-    <div class="span4">
-      <div class="well">
-      <i class="icon-fire"></i><span id="fire-number"><%= county.fires.count %></span>
-      <h3 class="fire-link"><%= link_to county.name, county %></h3>
+  <div class="span12">
+    <% @counties.each do |county| %>
+      <div class="county">
+        <i class="icon-fire"></i><span id="fire-number"><%= county.fires.count %></span><h3 class="fire-link"><%= link_to county.name, county %></h3>
       </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
