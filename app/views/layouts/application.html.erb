@@ -3,6 +3,9 @@
 <head>
   <title>FireScraper: <%= Rails.env %></title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
+   <!--[if lte IE 8]>
+     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.4/leaflet.ie.css" />
+ <![endif]-->
   <%= stylesheet_link_tag 'http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700' %>
   <%= javascript_include_tag "application" %>
   <!-- Stamen Maps -->
@@ -20,10 +23,10 @@
           </div>
           <nav>
             <ul class="nav pull-right">
-              <li>
-                  <!--<a href="https://twitter.com/CAL_FIRE" class="twitter-follow-button" data-show-count="true">Follow @CAL_FIRE</a>
-                  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script> -->
-              </li>
+              <!--<li>
+                  <a href="https://twitter.com/CAL_FIRE" class="twitter-follow-button" data-show-count="true">Follow @CAL_FIRE</a>
+                  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+              </li> -->
             </ul>
           </nav>
         </div>

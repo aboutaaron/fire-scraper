@@ -1,13 +1,32 @@
 <div class="row">
-  <div class="page-header">
-    <h1>Listing counties (<%= @counties.count %>)</h1>
-    <h2>Total fires (<%= total_fires_ignited %>)</h2>
-  </div>
   <div class="span12">
+    <!--<div class="hero-unit">Firescraper</div>-->
+  </div><!-- /.span12 -->
+  <div class="row">
+    <div class="span8 offset2">
+      <%= image_tag("https://dl.dropbox.com/u/127788/Flag_of_California.svg.png") %>
+      <p>
+        California has had <%= total_fires_ignited %> fires in <%= @counties.count %> counties. View the fires by county below.
+      </p>
+      <table class="table table-bordered table-condensed">
+          <thead>
+            <tr>
+              <th>County</th>
+              <th>Number of Fires</th>
+              <th>Most recent Fire</th>
+            </tr>
+          </thead>
+
     <% @counties.each do |county| %>
-      <div class="county well">
-        <i class="icon-fire"></i><span id="fire-number"><%= county.fires.count %></span><h3 class="fire-link"><%= link_to county.name, county %></h3>
-      </div>
+          <tbody>
+            <tr>
+              <td><h3 class="fire-link"><%= link_to county.name, county %></h3></td>
+              <td><span id="fire-number"><%= county.fires.count %></span></td>
+              <td><%= county.fires.first.date %></td>
+            </tr>
+          </tbody>
     <% end %>
-  </div>
-</div>
+      </table>
+    </div><!-- /.span8 -->
+  </div><!-- /.row -->
+</div><!-- /.row -->
