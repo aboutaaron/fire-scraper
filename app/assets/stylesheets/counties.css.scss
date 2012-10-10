@@ -12,10 +12,10 @@ $font-size: 18px;
 // Global Styles
 // =============
 
-// Only if nav present
-body {
-  padding-top: 60px;
-}
+// Only if nav present with fixed top
+//body {
+  //padding-top: 60px;
+//}
 
 @media (max-width: 979px) {
   body {
@@ -41,11 +41,18 @@ table {
     left: 0px;
 }
 
+h1 {
+  #app-name {
+    &:hover {
+      color: $red;
+    }
+  }
+}
 
 // Index
 #numberOfFires {
     background-color: $red;
     display: inline-block;
-    width: 20px;
-    height: 20px;
+    width: 10px;
+    height: 10px;
 }
