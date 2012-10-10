@@ -1,43 +1,38 @@
 <div class="row">
-  <div class="span12">
-    <!--<div class="hero-unit">Firescraper</div>-->
-  </div><!-- /.span12 -->
-  <div class="row">
-    <div class="span8 offset2">
-      <%= image_tag("https://dl.dropbox.com/u/127788/Flag_of_California.svg.png") %>
-      <div class="page-header">
-        <h1><span id="app-name">FireScraper &mdash;</span> <small>California has had <%= total_fires_ignited %> fires in <%= @counties.count %> counties since <%= @counties.last.fires.last.date %>. View the fires by county below.</small></h1>
-      </div>
-      <table class="table table-bordered table-condensed">
-          <thead>
-            <tr>
-              <th>County</th>
-              <th>Number of Fires</th>
-              <th>Most recent Fire</th>
-            </tr>
-          </thead>
+  <div class="span8 offset2">
+    <%= image_tag("https://dl.dropbox.com/u/127788/Flag_of_California.svg.png") %>
+    <div class="page-header">
+      <h1><span id="app-name">FireScraper &mdash;</span> <small>California has had <%= total_fires_ignited %> fires in <%= @counties.count %> counties since <%= @counties.last.fires.last.date %>. View the fires by county below.</small></h1>
+    </div>
+    <table class="table table-bordered table-condensed">
+        <thead>
+          <tr>
+            <th>County</th>
+            <th>Number of Fires</th>
+            <th>Most recent Fire</th>
+          </tr>
+        </thead>
 
-    <% @counties.each do |county| %>
-          <tbody>
-            <tr>
-              <td><h3 class="fire-link"><%= link_to county.name, county %></h3></td>
-              <td>
-                <script type="text/javascript">
-                var svg = ""
-                jQuery(document).ready(function() {
-                  svg = d3.select("#numberOfFires")
-                    .data(<%= county.fires.count %>)
-                    .enter()
-                    .append("#numberOfFires")
-                });
-                </script>
-                <span id="numberOfFires"></span>
-              </td>
-              <td><%= county.fires.first.date %></td>
-            </tr>
-          </tbody>
-    <% end %>
-      </table>
-    </div><!-- /.span8 -->
-  </div><!-- /.row -->
+  <% @counties.each do |county| %>
+        <tbody>
+          <tr>
+            <td><h3 class="fire-link"><%= link_to county.name, county %></h3></td>
+            <td>
+              <script type="text/javascript">
+              var svg = ""
+              jQuery(document).ready(function() {
+                svg = d3.select("#numberOfFires")
+                  .data(<%= county.fires.count %>)
+                  .enter()
+                  .append("#numberOfFires")
+              });
+              </script>
+              <span id="numberOfFires"></span>
+            </td>
+            <td><%= county.fires.first.date %></td>
+          </tr>
+        </tbody>
+  <% end %>
+    </table>
+  </div><!-- /.span8 -->
 </div><!-- /.row -->
