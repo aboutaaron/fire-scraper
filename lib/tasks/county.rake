@@ -29,6 +29,7 @@ namespace :county do
         names = []
         dates = []
         acres = []
+        locations =[]
         contained = []
         counties_arr = []
         a.page.search(".incident_table").drop(1).each do |fire|
@@ -52,6 +53,15 @@ namespace :county do
                     f.date = val
                 end
                 puts "This fire started on #{f.date}"
+
+                #####################
+                # Fire location notes
+                #####################
+                locations <<< fire.search(".odd:nth-child(4) td:nth-child(2)").text
+                locations.each do |val|
+                    f.location = val
+                end
+                puts "The fire happed at #{f.location}"
 
                 #============================================================
                 # Table value with acres burned, containment and other notes
