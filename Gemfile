@@ -29,6 +29,8 @@ group :assets do
   gem 'bootstrap-sass', '~> 2.1.0'
   gem 'leaflet-rails'
   gem 'geocoder'
+  gem 'momentjs-rails'
+  gem "d3-rails"
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platforms => :ruby

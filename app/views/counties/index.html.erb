@@ -5,9 +5,9 @@
   <div class="row">
     <div class="span8 offset2">
       <%= image_tag("https://dl.dropbox.com/u/127788/Flag_of_California.svg.png") %>
-      <p>
-        California has had <%= total_fires_ignited %> fires in <%= @counties.count %> counties. View the fires by county below.
-      </p>
+      <div class="page-header">
+        <h1>FireScraper <small>California has had <%= total_fires_ignited %> fires in <%= @counties.count %> counties. View the fires by county below.</small></h1>
+      </div>
       <table class="table table-bordered table-condensed">
           <thead>
             <tr>
@@ -21,7 +21,18 @@
           <tbody>
             <tr>
               <td><h3 class="fire-link"><%= link_to county.name, county %></h3></td>
-              <td><span id="fire-number"><%= county.fires.count %></span></td>
+              <td>
+                <script type="text/javascript">
+                var svg = ""
+                jQuery(document).ready(function() {
+                  svg = d3.select("#numberOfFires")
+                    .data(<%= county.fires.count %>)
+                    .enter()
+                    .append("#numberOfFires")
+                });
+                </script>
+                <span id="numberOfFires"></span>
+              </td>
               <td><%= county.fires.first.date %></td>
             </tr>
           </tbody>
