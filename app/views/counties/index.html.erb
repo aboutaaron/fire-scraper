@@ -1,6 +1,8 @@
 <div class="row">
   <div class="span8 offset2">
-    <%= image_tag("https://dl.dropbox.com/u/127788/Flag_of_California.svg.png") %>
+    <object data="Flag_of_California.svg" type="image/svg+xml">
+      <%= image_tag("Flag_of_California.svg.png") %>
+    </object>
     <div class="page-header">
       <h1><span id="app-name">FireScraper &mdash;</span> <small>California has had <%= total_fires_ignited %> fires in <%= @counties.count %> counties since <%= @counties.last.fires.last.date %>. View the fires by county below.</small></h1>
     </div>
