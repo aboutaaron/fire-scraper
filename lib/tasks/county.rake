@@ -57,7 +57,7 @@ namespace :county do
                 #####################
                 # Fire location notes
                 #####################
-                locations <<< fire.search(".odd:nth-child(4) td:nth-child(2)").text
+                locations << fire.search(".odd:nth-child(4) td:nth-child(2)").text
                 locations.each do |val|
                     f.location = val
                 end
