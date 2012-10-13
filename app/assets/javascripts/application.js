@@ -13,6 +13,5 @@
 //= require jquery
 //= require leaflet
 //= require jquery-tablesorter
-//= require moment
 //= require d3
 //= require_tree .
