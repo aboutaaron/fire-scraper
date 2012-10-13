@@ -1,12 +1,3 @@
-var newCounty = {
-    "type": "FeatureCollection",
-
-    "features": {
-        "type": "Feature", "properties": { "AREA": 0.00000000000000, "PERIMETER": 0.00000000000000, "CO06_D00_": 0.0, "CO06_D00_I": 0.0, "STATE": "06", "COUNTY": "000", "NAME": "Name", "LSAD": "06", "LSAD_TRANS": "County", "FIRES": 0  }, "geometry": { "type": "Polygon", "coordinates": [[0,0]] }
-    }
-}
-
-
 var boundaries = {
 "type": "FeatureCollection",
 

@@ -7,6 +7,6 @@ class County < ActiveRecord::Base
   after_validation :geocode
 
   def full_address
-    name + ", California, USA"
+    name + " County, California, USA"
   end
 end

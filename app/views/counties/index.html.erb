@@ -19,18 +19,7 @@
         <tbody>
           <tr>
             <td><h3 class="fire-link"><%= link_to county.name, county %></h3></td>
-            <td>
-              <script type="text/javascript">
-              var svg = ""
-              jQuery(document).ready(function() {
-                svg = d3.select("#numberOfFires")
-                  .data(<%= county.fires.count %>)
-                  .enter()
-                  .append("#numberOfFires")
-              });
-              </script>
-              <span id="numberOfFires"></span>
-            </td>
+            <td><%= county.fires.count %></td>
             <td><%= county.fires.first.date %></td>
           </tr>
         </tbody>
