@@ -1,3 +1,3 @@
 # CoffeeScript for individual fire pages
 $ ->
-    $("#county-fires").tablesorter()
+    $("#counties-table").tablesorter()

@@ -35,7 +35,8 @@
             while( i-- ) {
                 if( boundaries.features[i].properties.NAME === '<%= @county.name %>' ) break;
             }
-            L.geoJson(boundaries.features[i], {style:style}).addTo(map);;  // will be -1 if no match was found
+            L.geoJson(boundaries.features[i], {style:style}).addTo(map);
+            console.log(boundaries.features[i])// will be -1 if no match was found
 
             function style(feature) {
                 return {
@@ -47,9 +48,6 @@
                     fillOpacity: 0.4
                 };
             }
-
-            //geojson = L.geoJson(boundaries.features[1], {style:style}).addTo(map);
-
           });
         </script>
         <div id="map"></div>

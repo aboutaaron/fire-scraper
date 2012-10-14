@@ -6,7 +6,7 @@
     <div class="page-header">
       <h1><span id="app-name">FireScraper &mdash;</span> <small>California has had <%= total_fires_ignited %> fires in <%= @counties.count %> counties since <%= @counties.last.fires.last.date %>. View the fires by county below.</small></h1>
     </div>
-    <table class="table table-bordered table-condensed">
+    <table id="counties-table"class="table table-bordered table-condensed">
         <thead>
           <tr>
             <th>County</th>
