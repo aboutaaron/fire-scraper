@@ -20,30 +20,22 @@
             });
             map.addLayer(layer)
 
-            // Adding Stamen attribution
-            //poweredByStamen = new L.Control.Attribution
-            //poweredByStamen.addAttribution("Map tiles by <a href='http://stamen.com'>Stamen Design</a>, under <a href='http://creativecommons.org/licenses/by/3.0'>CC BY 3.0</a>. Data by <a href='http://openstreetmap.org'>OpenStreetMap</a>, under <a href='http://creativecommons.org/licenses/by-sa/3.0'>CC BY SA</a>.")
-            //map.addControl(poweredByStamen)
-
-
-            // L.geoJson(boundaries).addTo(map)
+            //Adding Stamen attribution
+            poweredByStamen = new L.Control.Attribution
+            poweredByStamen.addAttribution("Map tiles by <a href='http://stamen.com'>Stamen Design</a>, under <a href='http://creativecommons.org/licenses/by/3.0'>CC BY 3.0</a>. Data by <a href='http://openstreetmap.org'>OpenStreetMap</a>, under <a href='http://creativecommons.org/licenses/by-sa/3.0'>CC BY SA</a>.")
+            map.addControl(poweredByStamen)
 
             // Hack until i fix Leaflet attribution
-            //$(".leaflet-control-attribution.leaflet-control")[1].remove();
+            $(".leaflet-control-attribution.leaflet-control")[1].remove();
 
 
             // GeoJSON
-            var county = "<%= @county.name %>";
-            for(var i=0; i < boundaries.features.length; i++){
-              if (county == boundaries.features[i].properties.NAME) {
-                alert(county + " matches " + boundaries.features[i].properties.NAME)
-              } else {
-                alert(county + " does not match " + boundaries.features[i].properties.NAME)
-              }
-              //arr.push(boundaries.features[i].properties.NAME)
-              //console.log(boundaries.features[i].properties.NAME + " " + boundaries.features[i].properties.LSAD_TRANS + " ");
+            // http://stackoverflow.com/a/8585115/868724
+            var i = boundaries.features.length;
+            while( i-- ) {
+                if( boundaries.features[i].properties.NAME === '<%= @county.name %>' ) break;
             }
-            console.log(county)
+            L.geoJson(boundaries.features[i], {style:style}).addTo(map);;  // will be -1 if no match was found
 
             function style(feature) {
                 return {
@@ -56,7 +48,7 @@
                 };
             }
 
-            geojson = L.geoJson(boundaries.features, {style:style}).addTo(map);
+            //geojson = L.geoJson(boundaries.features[1], {style:style}).addTo(map);
 
           });
         </script>
