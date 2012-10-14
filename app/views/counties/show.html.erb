@@ -33,12 +33,11 @@
 
 
             // GeoJSON
-            var arr = []
+            var county = "<%= @county.name.gsub(//,'') + 'County' %>";
             for(var i=0; i < boundaries.features.length; i++){
-              arr.push(boundaries.features[i].properties.NAME + " " + boundaries.features[i].properties.LSAD_TRANS + " ")
-              //console.log(boundaries.features[i].properties.NAME + " " + boundaries.features[i].properties.LSAD_TRANS + " ");
+              //
             }
-            console.log(arr)
+            console.log(county)
 
             function style(feature) {
                 return {
@@ -51,7 +50,7 @@
                 };
             }
 
-            geojson = L.geoJson(boundaries.features, {style:style}).addTo(map);
+            geojson = L.geoJson(boundaries.features[1], {style:style}).addTo(map);
 
           });
         </script>
