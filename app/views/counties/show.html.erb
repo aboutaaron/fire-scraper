@@ -33,9 +33,15 @@
 
 
             // GeoJSON
-            var county = "<%= @county.name.gsub(//,'') + 'County' %>";
+            var county = "<%= @county.name %>";
             for(var i=0; i < boundaries.features.length; i++){
-              //
+              if (county == boundaries.features[i].properties.NAME) {
+                alert(county + " matches " + boundaries.features[i].properties.NAME)
+              } else {
+                alert(county + " does not match " + boundaries.features[i].properties.NAME)
+              }
+              //arr.push(boundaries.features[i].properties.NAME)
+              //console.log(boundaries.features[i].properties.NAME + " " + boundaries.features[i].properties.LSAD_TRANS + " ");
             }
             console.log(county)
 
@@ -50,7 +56,7 @@
                 };
             }
 
-            geojson = L.geoJson(boundaries.features[1], {style:style}).addTo(map);
+            geojson = L.geoJson(boundaries.features, {style:style}).addTo(map);
 
           });
         </script>
