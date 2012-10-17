@@ -23,10 +23,10 @@
             //Adding Stamen attribution
             poweredByStamen = new L.Control.Attribution
             poweredByStamen.addAttribution("Map tiles by <a href='http://stamen.com'>Stamen Design</a>, under <a href='http://creativecommons.org/licenses/by/3.0'>CC BY 3.0</a>. Data by <a href='http://openstreetmap.org'>OpenStreetMap</a>, under <a href='http://creativecommons.org/licenses/by-sa/3.0'>CC BY SA</a>.")
-            map.addControl(poweredByStamen)
+            //map.addControl(poweredByStamen)
 
             // Hack until i fix Leaflet attribution
-            $(".leaflet-control-attribution.leaflet-control")[1].remove();
+            //$(".leaflet-control-attribution.leaflet-control")[1].remove();
 
 
             // GeoJSON
@@ -36,7 +36,7 @@
                 if( boundaries.features[i].properties.NAME === '<%= @county.name %>' ) break;
             }
             L.geoJson(boundaries.features[i], {style:style}).addTo(map);
-            console.log(boundaries.features[i])// will be -1 if no match was found
+            console.log(boundaries.features[i].properties.NAME)// will be -1 if no match was found
 
             function style(feature) {
                 return {
@@ -76,7 +76,7 @@
         <% @county.fires.each do |fire| %>
               <tbody>
                 <tr>
-                  <td><%= link_to fire.name, fire %></td>
+                  <td><%= fire.name %></td>
                   <td><%= number_with_delimiter(fire.acreage) %></td>
                   <td><%= fire.date %></td>
                   <td><%= fire.containment %></td>
