@@ -24,19 +24,17 @@
   </noscript>
 </head>
 <body>
-    <div class="container">
-        <%= yield %>
-    </div>
-    <footer>
-        <div class="container">
-            <div class="row">
-              <div class="span8 offset2">
-                <small>Built by @aboutaaron | Data from <a href="#" title="CAL-FIRE Website">CAL-FIRE</a></small>
-                <!-- Environment: <%= Rails.env %> -->
-              </div>
-              </div>
+  <%= yield %>
+  <footer>
+      <div class="container">
+          <div class="row">
+            <div class="span8 offset2">
+              <small>Built by @aboutaaron | Data from <a href="#" title="CAL-FIRE Website">CAL-FIRE</a></small>
+              <!-- Environment: <%= Rails.env %> -->
             </div>
-        </div>
-    </footer>
+            </div>
+          </div>
+      </div>
+  </footer>
 </body>
 </html>
