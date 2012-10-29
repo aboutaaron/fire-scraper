@@ -1,5 +1,5 @@
 <div class="row">
-    <div id="scrollSpy" class="span4" data-spy="#affix" data-offset-top="20">
+    <div class="four columns">
         <div class="page-header">
           <h1><%= @county.name %> County</h1>
         </div>
@@ -65,7 +65,7 @@
         </ul>
     </div>
 
-    <div class="span8" id="county-fires">
+    <div class="eight columns" id="county-fires">
         <% if @county.fires.any? %>
           <h3><%= @county.fires.count %> fires | <%= total_acres_burned %> acres burned</h3>
           <table class="table table-bordered table-condensed">

@@ -1,63 +1,14 @@
-// Place all the styles related to the Counties controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+//variables
+$red: #b71234;
 
-@import "bootstrap/variables"; // Modify this for custom colors, font-sizes, etc
-
-// App Variables
-// =============
-
-$font-size: 18px;
-
-// Global Styles
-// =============
-
-// Only if nav present with fixed top
-//body {
-  //padding-top: 60px;
-//}
-
-@media (max-width: 979px) {
-  body {
-    padding-top: 0px;
-  }
-}
-
-#bottom-wrap {
-  //background-image: url('straws.png');
-  background: $white;
-}
-// Table Styles
-// =============
-
-table {
-    font-size: 16px;
-    font-family: Helvetica;
-}
-
-#county-fires {
-    margin-top: 19px;
-}
-
+// Styles
 #map { height: 400px; }
 
-.affix {
-    top: 20px;
-    left: 0px;
-}
-
-h1 {
-  #app-name {
-    &:hover {
-      color: $red;
+table {
+    a {
+        color: $red;
+        &:hover {
+            color: darken($red, 10%);
+        }
     }
-  }
-}
-
-// Index
-#numberOfFires {
-    background-color: $red;
-    display: inline-block;
-    width: 10px;
-    height: 10px;
 }
