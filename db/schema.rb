@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121010053250) do
+ActiveRecord::Schema.define(:version => 20121029100304) do
 
   create_table "counties", :force => true do |t|
     t.string   "name"
@@ -19,7 +19,10 @@ ActiveRecord::Schema.define(:version => 20121010053250) do
     t.datetime "updated_at", :null => false
     t.float    "latitude"
     t.float    "longitude"
+    t.string   "slug"
   end
+
+  add_index "counties", ["slug"], :name => "index_counties_on_slug", :unique => true
 
   create_table "fires", :force => true do |t|
     t.string   "name"

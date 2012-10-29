@@ -1,5 +1,7 @@
 class County < ActiveRecord::Base
-  attr_accessible :name, :latitude, :longitude
+  extend FriendlyId
+  friendly_id :name, use: :slugged
+  attr_accessible :name, :latitude, :longitude, :slug
   validates :name, uniqueness: true, presence: true
   has_many :fires
 
