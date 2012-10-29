@@ -21,15 +21,20 @@ body {
 // UI
 
 .nav-bar {
-    background: #000;
+    background: #eee;
     margin-top: 0px; //zero out default
     margin-bottom: 10px;
 
-    li {
-        h1 {
-            font-size: 32px;
+    h1 {
+        font-size: 32px;
+    }
+
+    ul {
+        li {
+
         }
     }
+
 }
 
 // Footer

@@ -13,5 +13,6 @@
 //= require jquery
 //= require leaflet
 //= require jquery-tablesorter
+//= require foundation/jquery.reveal
 //= require d3
 //= require_tree .
