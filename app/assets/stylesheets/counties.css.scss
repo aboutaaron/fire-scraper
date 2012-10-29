@@ -37,6 +37,21 @@ body {
 
 }
 
+// Table
+#bottom-wrap {
+    background: #ccc;
+
+    .table-wrap {
+        height: 400px;
+        overflow: auto;
+        margin-top: 18px;
+
+        table {
+
+        }
+    }
+}
+
 // Footer
 
 footer {
