@@ -25,20 +25,19 @@
 </head>
 <body>
   <nav class="container nav-bar home-border">
-    <h1>
+    <h1 class="header">
       <%= link_to Rails.application.class.parent_name, "/" %>
     </h1>
     <ul class="left">
       <li class="toggle-topbar"><a href="#"></a></li>
-      <li><a id="buttonForModal" href="#">About</a></li>
+      <li><a class="tiny button" id="buttonForModal" href="#">About</a></li>
     </ul>
   </nav>
   <%= yield %>
   <footer>
       <div class="container">
           <div class="row">
-              <p>Built by @aboutaaron | Data from <a href="#" title="CAL-FIRE Website">CAL-FIRE</a></p>
-              <!-- Environment: <%= Rails.env %> -->
+              <p>Built by <a href="http://twitter.com/aboutaaron">@aboutaaron</a> | Data from <a href="http://cdfdata.fire.ca.gov/incidents/incidents_current" title="CAL-FIRE Website">CAL-FIRE</a></p>
             </div>
           </div>
       </div>
@@ -49,12 +48,6 @@
     <p>Im a cool paragraph that lives inside of an even cooler modal. Wins</p>
     <a class="close-reveal-modal">&#215;</a>
   </div>
-  <script type="text/javascript">
-      $(document).ready(function() {
-        $("#buttonForModal").click(function() {
-          $("#myModal").reveal();
-        });
-      });
-  </script>
+  <!-- Environment: <%= Rails.env %> -->
 </body>
 </html>

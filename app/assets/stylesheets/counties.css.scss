@@ -21,7 +21,7 @@ body {
 // UI
 
 .nav-bar {
-    background: #eee;
+    //background: #eee;
     margin-top: 0px; //zero out default
     margin-bottom: 10px;
 
@@ -41,4 +41,8 @@ body {
 
 footer {
     background: #eee;
+
+    p {
+        margin-top: 20px;
+    }
 }
