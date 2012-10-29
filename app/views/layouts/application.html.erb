@@ -12,7 +12,7 @@
   <%= stylesheet_link_tag '//fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700' %>
   <%= javascript_include_tag "application" %>
   <!-- Stamen Maps -->
-  <%= javascript_include_tag "//maps.stamen.com/js/tile.stamen.js?v1.1.3" %>
+  <%= javascript_include_tag "http://maps.stamen.com/js/tile.stamen.js?v1.1.3" %>
   <!-- Leafelt -->
   <%= javascript_include_tag "//cdn.leafletjs.com/leaflet-0.4/leaflet.js" %>
   <!-- GeoJSON -->
@@ -24,6 +24,15 @@
   </noscript>
 </head>
 <body>
+  <nav class="container nav-bar home-border">
+    <ul>
+      <li class="name">
+        <h1>
+          <%= link_to Rails.application.class.parent_name, "/" %>
+        </h1>
+      </li>
+    </ul>
+  </nav>
   <%= yield %>
   <footer>
       <div class="container">

@@ -1,14 +1,39 @@
 //variables
 $red: #b71234;
 
-// Styles
-#map { height: 400px; }
-
-table {
+body {
     a {
         color: $red;
         &:hover {
             color: darken($red, 10%);
         }
     }
+}
+
+// Specific Styles
+#map {
+    height: 400px;
+
+    a {
+        color: darken($red, 10%);
+    }
+}
+// UI
+
+.nav-bar {
+    background: #000;
+    margin-top: 0px; //zero out default
+    margin-bottom: 10px;
+
+    li {
+        h1 {
+            font-size: 32px;
+        }
+    }
+}
+
+// Footer
+
+footer {
+    background: #eee;
 }

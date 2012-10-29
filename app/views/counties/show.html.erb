@@ -1,7 +1,7 @@
 <div class="row">
     <div class="four columns">
         <div class="page-header">
-          <h1><%= @county.name %> County</h1>
+          <h2><%= @county.name %> County</h2>
         </div>
         <p id="notice"><%= notice %></p>
         <script type="text/javascript">
@@ -20,19 +20,10 @@
             });
             //map.addLayer(layer)
 
-            L.tileLayer('http://{s}.tile.cloudmade.com/0064577453aa486d98cec7f0ef57578f/997/256/{z}/{x}/{y}.png', {
-                attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://cloudmade.com">CloudMade</a>',
+            L.tileLayer('http://{s}.tile.stamen.com/toner/{z}/{x}/{y}.png', {
+                attribution: "Map tiles by <a href='http://stamen.com'>Stamen Design</a>, under <a href='http://creativecommons.org/licenses/by/3.0'>CC BY 3.0</a>. Data by <a href='http://openstreetmap.org'>OpenStreetMap</a>, under <a href='http://creativecommons.org/licenses/by-sa/3.0'>CC BY SA</a>.",
                 maxZoom: 18
             }).addTo(map);
-
-            //Adding Stamen attribution
-            poweredByStamen = new L.Control.Attribution
-            poweredByStamen.addAttribution("Map tiles by <a href='http://stamen.com'>Stamen Design</a>, under <a href='http://creativecommons.org/licenses/by/3.0'>CC BY 3.0</a>. Data by <a href='http://openstreetmap.org'>OpenStreetMap</a>, under <a href='http://creativecommons.org/licenses/by-sa/3.0'>CC BY SA</a>.")
-            //map.addControl(poweredByStamen)
-
-            // Hack until i fix Leaflet attribution
-            //$(".leaflet-control-attribution.leaflet-control")[1].remove();
-
 
             // GeoJSON
             // http://stackoverflow.com/a/8585115/868724
@@ -45,7 +36,7 @@
 
             function style(feature) {
                 return {
-                    fillColor: '#9d261d',
+                    fillColor: '#b71234',
                     weight: 2,
                     opacity: 1,
                     color: 'white',
@@ -65,10 +56,11 @@
         </ul>
     </div>
 
-    <div class="eight columns" id="county-fires">
+    <div class="eight columns">
+      <h3><%= @county.fires.count %> fires | <%= total_acres_burned %> acres burned since <%= @county.fires.last.date %></h3>
+    </div>
+    <table class="table eight columns">
         <% if @county.fires.any? %>
-          <h3><%= @county.fires.count %> fires | <%= total_acres_burned %> acres burned</h3>
-          <table class="table table-bordered table-condensed">
               <thead>
                 <tr>
                   <th>Name</th>
@@ -88,12 +80,11 @@
                 </tr>
               </tbody>
         <% end %>
-          </table>
         <% else %>
           <div class="alert">
               <button type="button" class="close" data-dismiss="alert">×</button>
               <strong>Warning!</strong> Best check yo self, you're not looking too good.
           </div>
         <% end %>
-    </div>
+    </table>
 </div>
