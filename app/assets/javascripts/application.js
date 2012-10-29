@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require leaflet
+//= require underscore
 //= require jquery-tablesorter
 //= require d3
 //= require_tree .
