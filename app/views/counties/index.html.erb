@@ -5467,31 +5467,31 @@
         </svg>
       </div><!-- /.four columns -->
       <div class="five columns">
-        <p>California has had <strong><%= total_fires_ignited %></strong> wildfires in <strong><%= @counties.count %></strong> counties since <strong><%= @counties.last.fires.last.date %></strong>. View the fires by county below.</p>
+        <section id="description">California has had <strong><%= total_fires_ignited %></strong> wildfires in <strong><%= @counties.count %></strong> counties since <strong><%= @counties.last.fires.last.date %></strong>. View the fires by county below.</section><a class="tiny button" id="buttonForModal" href="#">About</a>
+
         <hr>
         <div class="table-wrap">
-          <table class="frontpage">
+          <table id="index-table">
               <thead>
                 <tr>
-                  <th>County</th>
-                  <th>Number of Fires</th>
-                  <th>Total Acres Burned</th>
-                  <th>Most recent Fire</th>
+                  <th>County <i class="icon-caret-down"></i> </th>
+                  <th>Number of Fires <i class="icon-caret-down"></i> </th>
+                  <th>Total Acres Burned <i class="icon-caret-down"></i> </th>
+                  <th>Most recent Fire <i class="icon-caret-down"></i> </th>
                 </tr>
               </thead>
-
-            <% @counties.each do |county| %>
-                  <tbody>
-                    <tr>
-                      <td><%= link_to county.name, county %></td>
-                      <td><%= county.fires.count %></td>
-                      <td><%= (1337 * rand).to_i %> (not real)</td>
-                      <td><%= county.fires.first.date %></td>
-                    </tr>
-                  </tbody>
-            <% end %>
+              <tbody>
+              <% @counties.each do |county| %>
+                <tr>
+                  <td><%= link_to county.name, county %></td>
+                  <td><%= county.fires.count %></td>
+                  <td><%= (1337 * rand).to_i %> (not real)</td>
+                  <td><%= county.fires.first.date %></td>
+                </tr>
+              <% end %>
+              </tbody>
           </table>
-        </div>
+        </div><!-- # table wrap -->
       </div><!-- /.four columns -->
     </div><!-- /.row -->
   </div><!-- /.container -->

@@ -59,27 +59,26 @@
     <div class="eight columns">
       <h3><%= @county.fires.count %> fires | <%= total_acres_burned %> acres burned since <%= @county.fires.last.date %></h3>
     </div>
-    <table class="table eight columns">
+    <table id="show-table" class="eight columns">
         <% if @county.fires.any? %>
               <thead>
                 <tr>
-                  <th>Name</th>
-                  <th>Acres burned</th>
-                  <th>Date started</th>
-                  <th>Containment</th>
+                  <th>Name <i class="icon-caret-down"></i></th>
+                  <th>Acres burned <i class="icon-caret-down"></i></th>
+                  <th>Date started <i class="icon-caret-down"></i></th>
+                  <th>Containment <i class="icon-caret-down"></i></th>
                 </tr>
               </thead>
-
-        <% @county.fires.each do |fire| %>
               <tbody>
-                <tr>
-                  <td><%= fire.name %></td>
-                  <td><%= number_with_delimiter(fire.acreage) %></td>
-                  <td><%= fire.date %></td>
-                  <td><%= fire.containment %></td>
-                </tr>
+                <% @county.fires.each do |fire| %>
+                  <tr>
+                    <td><%= fire.name %></td>
+                    <td><%= number_with_delimiter(fire.acreage) %></td>
+                    <td><%= fire.date %></td>
+                    <td><%= fire.containment %></td>
+                  </tr>
+                <% end %>
               </tbody>
-        <% end %>
         <% else %>
           <div class="alert">
               <button type="button" class="close" data-dismiss="alert">×</button>

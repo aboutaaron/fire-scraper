@@ -18,6 +18,13 @@ body {
         color: darken($red, 10%);
     }
 }
+
+#description {
+    font-size: 25px;
+    line-height: 30px;
+    margin-bottom: 10px;
+}
+
 // UI
 
 .nav-bar {
@@ -44,12 +51,14 @@ body {
 }
 
 .table-wrap {
-    height: 520px;
+    height: 400px;
     overflow: auto;
     margin-top: 18px;
+    border: 1px solid #DDD;
 
     table {
-
+        margin-bottom: 0px;
+        border: 0px;
     }
 }
 
