@@ -5500,10 +5500,8 @@
 <script type="text/javascript">
   "use strict";
 
-  var countyjson, numberOfFires;
-
   // Construct JSON
-  countyjson = {
+  var countyjson = {
     "counties": [
         <% @counties.each do |county| %>
             {"name": "<%= county.name.gsub(/&/,'and').gsub(/\s/,'_') %>", "fires": <%= county.fires.count %>, "acreage": <%= county.fires.sum(:acreage) %>},
@@ -5521,31 +5519,30 @@
            d > 4   ? '#FD8D3C' :
            d > 2   ? '#FEB24C' :
            d > 1   ? '#FED976' :
-                      '#FFEDA0';
+           d > 0   ? '#FFEDA0' :
+                      '#E2E2E2';
   }
+
 
   // Wikipedia California SVG has three SVG shapes
   // path, polyline, polygon
   // http://blog.visual.ly/how-to-make-choropleth-maps-in-d3/
-  d3.selectAll('path, polyline, polygon').attr('fill', function(d) {
-    var abbr = this.id;
-    console.log(abbr);
 
-    $.each(countyjson.counties, function(key, data){
-      numberOfFires = data.fires;
+  d3.selectAll('path, polyline, polygon')
+    .attr('fill', function(d) {
+      var abbr = this.id;
+      var numberOfFires;
+
+      $.each(countyjson.counties, function(key, data){
+        if(abbr == data.name){
+          numberOfFires = data.fires;
+        }
+      });
+      return getColor(numberOfFires);
+    })
+    // Debug
+    .on("click", function(){
+      console.log(this);
     });
-    return getColor(numberOfFires);
-  });
-
-  d3.selectAll('path, polyline, polygon').attr('fill', function(d) {
-    var abbr = this.id;
-
-    $.each(countyjson.counties, function(key, data){
-      if(data.name == abbr){
-        numberOfFires = data.fires;
-      }
-    });
-    return getColor(numberOfFires);
-  });
 
 </script>
