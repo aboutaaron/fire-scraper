@@ -14,6 +14,7 @@
   <%= javascript_include_tag "//cdn.leafletjs.com/leaflet-0.4/leaflet.js" %>
   <!-- GeoJSON for individual pages -->
   <%= javascript_include_tag "cali.json" %>
+  <%= javascript_include_tag "raptorize/jquery.raptorize.1.0.js" %>
   <%= csrf_meta_tags %>
   <noscript>
     For full functionality of this site it is necessary to enable JavaScript. Here are the <a href="http://www.enable-javascript.com/" target="_blank">instructions how to enable JavaScript in your web browser</a>.
@@ -21,9 +22,11 @@
 </head>
 <body>
   <nav class="container nav-bar home-border">
-    <h1 class="header">
-      <%= link_to Rails.application.class.parent_name, "/" %>
-    </h1>
+    <div class="twelve columns">
+      <h1 class="header">
+        <%= link_to Rails.application.class.parent_name, "/" %>
+      </h1>
+    </div>
   </nav>
   <%= yield %>
   <footer>
@@ -35,9 +38,13 @@
       </div>
   </footer>
   <div id="myModal" class="reveal-modal large">
-    <h2>Awesome. I have it.</h2>
-    <p class="lead">Your couch.  It is mine.</p>
-    <p>Im a cool paragraph that lives inside of an even cooler modal. Wins</p>
+    <h2>FireScraper</h2>
+    <p class="lead">Tracking California wildfires reported by CAL-FIRE</p>
+    <p>FireScraper uses a web crawler to gather and track the latest wildfires happening in California. Because the data is manually updated by CAL-FIRE, there may be instances where certain fires are not present. </p>
+
+    <p>FireScraper checks every morning at 8 a.m. PST for new fires and and updates the table below accordingly. The map to the left every county in California and darkens depending on the amount of fires that have happened in each county.</p>
+
+    <p>The app is powered by Ruby on Rails, Foundation, d3, Leaflet, PostgreSQL and Heroku.</p>
     <a class="close-reveal-modal">&#215;</a>
   </div>
   <!-- Environment: <%= Rails.env %> -->

@@ -6,3 +6,5 @@ $(document).ready ->
         $("#myModal").reveal()
     $("#index-table").tablesorter()
     $("#show-table").tablesorter()
+    $(".button").raptorize
+        enterOn: "konami-code" #timer, konami-code, click

@@ -5474,10 +5474,10 @@
           <table id="index-table">
               <thead>
                 <tr>
-                  <th>County <i class="icon-caret-down"></i> </th>
-                  <th>Number of Fires <i class="icon-caret-down"></i> </th>
-                  <th>Total Acres Burned <i class="icon-caret-down"></i> </th>
-                  <th>Most recent Fire <i class="icon-caret-down"></i> </th>
+                  <th>County <i class="icon-caret-down"></i></th>
+                  <th>Number of Fires <i class="icon-caret-down"></i></th>
+                  <!--<th>Total Acres Burned <i class="icon-caret-down"></i></th> -->
+                  <th>Most recent Fire <i class="icon-caret-down"></i></th>
                 </tr>
               </thead>
               <tbody>
@@ -5485,7 +5485,7 @@
                 <tr>
                   <td><%= link_to county.name, county %></td>
                   <td><%= county.fires.count %></td>
-                  <td><%= (1337 * rand).to_i %> (not real)</td>
+                  <!-- <td><%= (1337 * rand).to_i %> (not real)</td> -->
                   <td><%= county.fires.first.date %></td>
                 </tr>
               <% end %>
