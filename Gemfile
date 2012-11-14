@@ -20,6 +20,7 @@ gem 'mechanize'
 gem 'friendly_id'
 gem 'simple_form'
 gem 'geocoder'
+gem 'zurb-foundation', '~> 2.2'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -27,7 +28,6 @@ group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'leaflet-rails'
-  gem 'zurb-foundation', '~> 2.2'
   gem 'jquery-tablesorter'
   gem "d3-rails"
   gem 'font-awesome-rails'
