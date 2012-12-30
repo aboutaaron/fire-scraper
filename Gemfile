@@ -13,6 +13,7 @@ gem 'pg'
 
 gem 'taps'
 gem 'heroku'
+gem 'newrelic_rpm'
 
 # For this app...
 gem 'thin'
