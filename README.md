@@ -19,6 +19,5 @@ Your local pyro's theatrics probably won't appear here.
 
 # About
 
-This Rails project was built by Aaron Williams, a web developer and journalist who currently works for the Los Angeles Times
-(but not as a web developer, lololol).
+This Rails project was built by Aaron Williams, a web developer and journalist who currently works for the Los Angeles Times.
 
