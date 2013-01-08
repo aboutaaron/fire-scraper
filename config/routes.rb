@@ -7,7 +7,6 @@ FireScraper::Application.routes.draw do
   resources :FireScraper
 
   root to: 'counties#index', as: 'counties'
-
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
