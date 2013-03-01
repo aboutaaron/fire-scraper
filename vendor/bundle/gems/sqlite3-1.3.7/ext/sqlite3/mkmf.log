@@ -1,0 +1,338 @@
+find_header: checking for sqlite3.h... -------------------- yes
+
+"/usr/local/bin/gcc-4.2 -o conftest -I/Users/vesuvius/.rvm/rubies/ruby-2.0.0-p0/include/ruby-2.0.0/x86_64-darwin12.2.0 -I/Users/vesuvius/.rvm/rubies/ruby-2.0.0-p0/include/ruby-2.0.0/ruby/backward -I/Users/vesuvius/.rvm/rubies/ruby-2.0.0-p0/include/ruby-2.0.0 -I. -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT -I/Users/vesuvius/.rvm/usr/include -I/Users/vesuvius/.rvm/usr/include    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration  -pipe conftest.c  -L. -L/Users/vesuvius/.rvm/rubies/ruby-2.0.0-p0/lib -L/Users/vesuvius/.rvm/usr/lib -L. -fstack-protector -L/Users/vesuvius/.rvm/usr/lib -L/Users/vesuvius/.rvm/usr/lib      -lruby-static  -lpthread -ldl -lobjc "
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: int main(void) {return 0;}
+/* end */
+
+"/usr/local/bin/gcc-4.2 -E -I/Users/vesuvius/.rvm/rubies/ruby-2.0.0-p0/include/ruby-2.0.0/x86_64-darwin12.2.0 -I/Users/vesuvius/.rvm/rubies/ruby-2.0.0-p0/include/ruby-2.0.0/ruby/backward -I/Users/vesuvius/.rvm/rubies/ruby-2.0.0-p0/include/ruby-2.0.0 -I. -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT -I/Users/vesuvius/.rvm/usr/include -I/Users/vesuvius/.rvm/usr/include    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration  -pipe  conftest.c -o conftest.i"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <sqlite3.h>
+/* end */
+
+--------------------
+
+find_library: checking for sqlite3_libversion_number()... -------------------- -lsqlite3
+
+"/usr/local/bin/gcc-4.2 -o conftest -I/Users/vesuvius/.rvm/rubies/ruby-2.0.0-p0/include/ruby-2.0.0/x86_64-darwin12.2.0 -I/Users/vesuvius/.rvm/rubies/ruby-2.0.0-p0/include/ruby-2.0.0/ruby/backward -I/Users/vesuvius/.rvm/rubies/ruby-2.0.0-p0/include/ruby-2.0.0 -I. -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT -I/Users/vesuvius/.rvm/usr/include -I/Users/vesuvius/.rvm/usr/include    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration  -pipe conftest.c  -L. -L/Users/vesuvius/.rvm/rubies/ruby-2.0.0-p0/lib -L/Users/vesuvius/.rvm/usr/lib -L. -fstack-protector -L/Users/vesuvius/.rvm/usr/lib -L/Users/vesuvius/.rvm/usr/lib      -lruby-static -lsqlite3  -lpthread -ldl -lobjc "
+conftest.c: In function ‘t’:
+conftest.c:6: error: ‘sqlite3_libversion_number’ undeclared (first use in this function)
+conftest.c:6: error: (Each undeclared identifier is reported only once
+conftest.c:6: error: for each function it appears in.)
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: /*top*/
+4: int main(void) {return 0;}
+5: extern int t(void);
+6: int t(void) { void ((*volatile p)()); p = (void ((*)()))sqlite3_libversion_number; return 0; }
+/* end */
+
+"/usr/local/bin/gcc-4.2 -o conftest -I/Users/vesuvius/.rvm/rubies/ruby-2.0.0-p0/include/ruby-2.0.0/x86_64-darwin12.2.0 -I/Users/vesuvius/.rvm/rubies/ruby-2.0.0-p0/include/ruby-2.0.0/ruby/backward -I/Users/vesuvius/.rvm/rubies/ruby-2.0.0-p0/include/ruby-2.0.0 -I. -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT -I/Users/vesuvius/.rvm/usr/include -I/Users/vesuvius/.rvm/usr/include    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration  -pipe conftest.c  -L. -L/Users/vesuvius/.rvm/rubies/ruby-2.0.0-p0/lib -L/Users/vesuvius/.rvm/usr/lib -L. -fstack-protector -L/Users/vesuvius/.rvm/usr/lib -L/Users/vesuvius/.rvm/usr/lib      -lruby-static -lsqlite3  -lpthread -ldl -lobjc "
+conftest.c: In function ‘t’:
+conftest.c:6: warning: implicit declaration of function ‘sqlite3_libversion_number’
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: /*top*/
+4: int main(void) {return 0;}
+5: extern int t(void);
+6: int t(void) { sqlite3_libversion_number(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for rb_proc_arity()... -------------------- yes
+
+"/usr/local/bin/gcc-4.2 -o conftest -I/Users/vesuvius/.rvm/rubies/ruby-2.0.0-p0/include/ruby-2.0.0/x86_64-darwin12.2.0 -I/Users/vesuvius/.rvm/rubies/ruby-2.0.0-p0/include/ruby-2.0.0/ruby/backward -I/Users/vesuvius/.rvm/rubies/ruby-2.0.0-p0/include/ruby-2.0.0 -I. -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT -I/Users/vesuvius/.rvm/usr/include -I/Users/vesuvius/.rvm/usr/include    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration  -pipe conftest.c  -L. -L/Users/vesuvius/.rvm/rubies/ruby-2.0.0-p0/lib -L/Users/vesuvius/.rvm/usr/lib -L. -fstack-protector -L/Users/vesuvius/.rvm/usr/lib -L/Users/vesuvius/.rvm/usr/lib     -lsqlite3  -lruby-static -lsqlite3  -lpthread -ldl -lobjc "
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: /*top*/
+4: int main(void) {return 0;}
+5: extern int t(void);
+6: int t(void) { void ((*volatile p)()); p = (void ((*)()))rb_proc_arity; return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for sqlite3_initialize()... -------------------- yes
+
+"/usr/local/bin/gcc-4.2 -o conftest -I/Users/vesuvius/.rvm/rubies/ruby-2.0.0-p0/include/ruby-2.0.0/x86_64-darwin12.2.0 -I/Users/vesuvius/.rvm/rubies/ruby-2.0.0-p0/include/ruby-2.0.0/ruby/backward -I/Users/vesuvius/.rvm/rubies/ruby-2.0.0-p0/include/ruby-2.0.0 -I. -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT -I/Users/vesuvius/.rvm/usr/include -I/Users/vesuvius/.rvm/usr/include    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration  -pipe conftest.c  -L. -L/Users/vesuvius/.rvm/rubies/ruby-2.0.0-p0/lib -L/Users/vesuvius/.rvm/usr/lib -L. -fstack-protector -L/Users/vesuvius/.rvm/usr/lib -L/Users/vesuvius/.rvm/usr/lib     -lsqlite3  -lruby-static -lsqlite3  -lpthread -ldl -lobjc "
+conftest.c: In function ‘t’:
+conftest.c:6: error: ‘sqlite3_initialize’ undeclared (first use in this function)
+conftest.c:6: error: (Each undeclared identifier is reported only once
+conftest.c:6: error: for each function it appears in.)
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: /*top*/
+4: int main(void) {return 0;}
+5: extern int t(void);
+6: int t(void) { void ((*volatile p)()); p = (void ((*)()))sqlite3_initialize; return 0; }
+/* end */
+
+"/usr/local/bin/gcc-4.2 -o conftest -I/Users/vesuvius/.rvm/rubies/ruby-2.0.0-p0/include/ruby-2.0.0/x86_64-darwin12.2.0 -I/Users/vesuvius/.rvm/rubies/ruby-2.0.0-p0/include/ruby-2.0.0/ruby/backward -I/Users/vesuvius/.rvm/rubies/ruby-2.0.0-p0/include/ruby-2.0.0 -I. -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT -I/Users/vesuvius/.rvm/usr/include -I/Users/vesuvius/.rvm/usr/include    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration  -pipe conftest.c  -L. -L/Users/vesuvius/.rvm/rubies/ruby-2.0.0-p0/lib -L/Users/vesuvius/.rvm/usr/lib -L. -fstack-protector -L/Users/vesuvius/.rvm/usr/lib -L/Users/vesuvius/.rvm/usr/lib     -lsqlite3  -lruby-static -lsqlite3  -lpthread -ldl -lobjc "
+conftest.c: In function ‘t’:
+conftest.c:6: warning: implicit declaration of function ‘sqlite3_initialize’
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: /*top*/
+4: int main(void) {return 0;}
+5: extern int t(void);
+6: int t(void) { sqlite3_initialize(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for sqlite3_backup_init()... -------------------- yes
+
+"/usr/local/bin/gcc-4.2 -o conftest -I/Users/vesuvius/.rvm/rubies/ruby-2.0.0-p0/include/ruby-2.0.0/x86_64-darwin12.2.0 -I/Users/vesuvius/.rvm/rubies/ruby-2.0.0-p0/include/ruby-2.0.0/ruby/backward -I/Users/vesuvius/.rvm/rubies/ruby-2.0.0-p0/include/ruby-2.0.0 -I. -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT -I/Users/vesuvius/.rvm/usr/include -I/Users/vesuvius/.rvm/usr/include    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration  -pipe conftest.c  -L. -L/Users/vesuvius/.rvm/rubies/ruby-2.0.0-p0/lib -L/Users/vesuvius/.rvm/usr/lib -L. -fstack-protector -L/Users/vesuvius/.rvm/usr/lib -L/Users/vesuvius/.rvm/usr/lib     -lsqlite3  -lruby-static -lsqlite3  -lpthread -ldl -lobjc "
+conftest.c: In function ‘t’:
+conftest.c:6: error: ‘sqlite3_backup_init’ undeclared (first use in this function)
+conftest.c:6: error: (Each undeclared identifier is reported only once
+conftest.c:6: error: for each function it appears in.)
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: /*top*/
+4: int main(void) {return 0;}
+5: extern int t(void);
+6: int t(void) { void ((*volatile p)()); p = (void ((*)()))sqlite3_backup_init; return 0; }
+/* end */
+
+"/usr/local/bin/gcc-4.2 -o conftest -I/Users/vesuvius/.rvm/rubies/ruby-2.0.0-p0/include/ruby-2.0.0/x86_64-darwin12.2.0 -I/Users/vesuvius/.rvm/rubies/ruby-2.0.0-p0/include/ruby-2.0.0/ruby/backward -I/Users/vesuvius/.rvm/rubies/ruby-2.0.0-p0/include/ruby-2.0.0 -I. -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT -I/Users/vesuvius/.rvm/usr/include -I/Users/vesuvius/.rvm/usr/include    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration  -pipe conftest.c  -L. -L/Users/vesuvius/.rvm/rubies/ruby-2.0.0-p0/lib -L/Users/vesuvius/.rvm/usr/lib -L. -fstack-protector -L/Users/vesuvius/.rvm/usr/lib -L/Users/vesuvius/.rvm/usr/lib     -lsqlite3  -lruby-static -lsqlite3  -lpthread -ldl -lobjc "
+conftest.c: In function ‘t’:
+conftest.c:6: warning: implicit declaration of function ‘sqlite3_backup_init’
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: /*top*/
+4: int main(void) {return 0;}
+5: extern int t(void);
+6: int t(void) { sqlite3_backup_init(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for sqlite3_column_database_name()... -------------------- no
+
+"/usr/local/bin/gcc-4.2 -o conftest -I/Users/vesuvius/.rvm/rubies/ruby-2.0.0-p0/include/ruby-2.0.0/x86_64-darwin12.2.0 -I/Users/vesuvius/.rvm/rubies/ruby-2.0.0-p0/include/ruby-2.0.0/ruby/backward -I/Users/vesuvius/.rvm/rubies/ruby-2.0.0-p0/include/ruby-2.0.0 -I. -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT -I/Users/vesuvius/.rvm/usr/include -I/Users/vesuvius/.rvm/usr/include    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration  -pipe conftest.c  -L. -L/Users/vesuvius/.rvm/rubies/ruby-2.0.0-p0/lib -L/Users/vesuvius/.rvm/usr/lib -L. -fstack-protector -L/Users/vesuvius/.rvm/usr/lib -L/Users/vesuvius/.rvm/usr/lib     -lsqlite3  -lruby-static -lsqlite3  -lpthread -ldl -lobjc "
+conftest.c: In function ‘t’:
+conftest.c:6: error: ‘sqlite3_column_database_name’ undeclared (first use in this function)
+conftest.c:6: error: (Each undeclared identifier is reported only once
+conftest.c:6: error: for each function it appears in.)
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: /*top*/
+4: int main(void) {return 0;}
+5: extern int t(void);
+6: int t(void) { void ((*volatile p)()); p = (void ((*)()))sqlite3_column_database_name; return 0; }
+/* end */
+
+"/usr/local/bin/gcc-4.2 -o conftest -I/Users/vesuvius/.rvm/rubies/ruby-2.0.0-p0/include/ruby-2.0.0/x86_64-darwin12.2.0 -I/Users/vesuvius/.rvm/rubies/ruby-2.0.0-p0/include/ruby-2.0.0/ruby/backward -I/Users/vesuvius/.rvm/rubies/ruby-2.0.0-p0/include/ruby-2.0.0 -I. -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT -I/Users/vesuvius/.rvm/usr/include -I/Users/vesuvius/.rvm/usr/include    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration  -pipe conftest.c  -L. -L/Users/vesuvius/.rvm/rubies/ruby-2.0.0-p0/lib -L/Users/vesuvius/.rvm/usr/lib -L. -fstack-protector -L/Users/vesuvius/.rvm/usr/lib -L/Users/vesuvius/.rvm/usr/lib     -lsqlite3  -lruby-static -lsqlite3  -lpthread -ldl -lobjc "
+conftest.c: In function ‘t’:
+conftest.c:6: warning: implicit declaration of function ‘sqlite3_column_database_name’
+Undefined symbols for architecture x86_64:
+  "_sqlite3_column_database_name", referenced from:
+      _t in cc5rP2f5.o
+ld: symbol(s) not found for architecture x86_64
+collect2: ld returned 1 exit status
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: /*top*/
+4: int main(void) {return 0;}
+5: extern int t(void);
+6: int t(void) { sqlite3_column_database_name(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for sqlite3_enable_load_extension()... -------------------- no
+
+"/usr/local/bin/gcc-4.2 -o conftest -I/Users/vesuvius/.rvm/rubies/ruby-2.0.0-p0/include/ruby-2.0.0/x86_64-darwin12.2.0 -I/Users/vesuvius/.rvm/rubies/ruby-2.0.0-p0/include/ruby-2.0.0/ruby/backward -I/Users/vesuvius/.rvm/rubies/ruby-2.0.0-p0/include/ruby-2.0.0 -I. -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT -I/Users/vesuvius/.rvm/usr/include -I/Users/vesuvius/.rvm/usr/include    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration  -pipe conftest.c  -L. -L/Users/vesuvius/.rvm/rubies/ruby-2.0.0-p0/lib -L/Users/vesuvius/.rvm/usr/lib -L. -fstack-protector -L/Users/vesuvius/.rvm/usr/lib -L/Users/vesuvius/.rvm/usr/lib     -lsqlite3  -lruby-static -lsqlite3  -lpthread -ldl -lobjc "
+conftest.c: In function ‘t’:
+conftest.c:6: error: ‘sqlite3_enable_load_extension’ undeclared (first use in this function)
+conftest.c:6: error: (Each undeclared identifier is reported only once
+conftest.c:6: error: for each function it appears in.)
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: /*top*/
+4: int main(void) {return 0;}
+5: extern int t(void);
+6: int t(void) { void ((*volatile p)()); p = (void ((*)()))sqlite3_enable_load_extension; return 0; }
+/* end */
+
+"/usr/local/bin/gcc-4.2 -o conftest -I/Users/vesuvius/.rvm/rubies/ruby-2.0.0-p0/include/ruby-2.0.0/x86_64-darwin12.2.0 -I/Users/vesuvius/.rvm/rubies/ruby-2.0.0-p0/include/ruby-2.0.0/ruby/backward -I/Users/vesuvius/.rvm/rubies/ruby-2.0.0-p0/include/ruby-2.0.0 -I. -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT -I/Users/vesuvius/.rvm/usr/include -I/Users/vesuvius/.rvm/usr/include    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration  -pipe conftest.c  -L. -L/Users/vesuvius/.rvm/rubies/ruby-2.0.0-p0/lib -L/Users/vesuvius/.rvm/usr/lib -L. -fstack-protector -L/Users/vesuvius/.rvm/usr/lib -L/Users/vesuvius/.rvm/usr/lib     -lsqlite3  -lruby-static -lsqlite3  -lpthread -ldl -lobjc "
+conftest.c: In function ‘t’:
+conftest.c:6: warning: implicit declaration of function ‘sqlite3_enable_load_extension’
+Undefined symbols for architecture x86_64:
+  "_sqlite3_enable_load_extension", referenced from:
+      _t in cc9z1jT1.o
+ld: symbol(s) not found for architecture x86_64
+collect2: ld returned 1 exit status
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: /*top*/
+4: int main(void) {return 0;}
+5: extern int t(void);
+6: int t(void) { sqlite3_enable_load_extension(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for sqlite3_load_extension()... -------------------- no
+
+"/usr/local/bin/gcc-4.2 -o conftest -I/Users/vesuvius/.rvm/rubies/ruby-2.0.0-p0/include/ruby-2.0.0/x86_64-darwin12.2.0 -I/Users/vesuvius/.rvm/rubies/ruby-2.0.0-p0/include/ruby-2.0.0/ruby/backward -I/Users/vesuvius/.rvm/rubies/ruby-2.0.0-p0/include/ruby-2.0.0 -I. -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT -I/Users/vesuvius/.rvm/usr/include -I/Users/vesuvius/.rvm/usr/include    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration  -pipe conftest.c  -L. -L/Users/vesuvius/.rvm/rubies/ruby-2.0.0-p0/lib -L/Users/vesuvius/.rvm/usr/lib -L. -fstack-protector -L/Users/vesuvius/.rvm/usr/lib -L/Users/vesuvius/.rvm/usr/lib     -lsqlite3  -lruby-static -lsqlite3  -lpthread -ldl -lobjc "
+conftest.c: In function ‘t’:
+conftest.c:6: error: ‘sqlite3_load_extension’ undeclared (first use in this function)
+conftest.c:6: error: (Each undeclared identifier is reported only once
+conftest.c:6: error: for each function it appears in.)
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: /*top*/
+4: int main(void) {return 0;}
+5: extern int t(void);
+6: int t(void) { void ((*volatile p)()); p = (void ((*)()))sqlite3_load_extension; return 0; }
+/* end */
+
+"/usr/local/bin/gcc-4.2 -o conftest -I/Users/vesuvius/.rvm/rubies/ruby-2.0.0-p0/include/ruby-2.0.0/x86_64-darwin12.2.0 -I/Users/vesuvius/.rvm/rubies/ruby-2.0.0-p0/include/ruby-2.0.0/ruby/backward -I/Users/vesuvius/.rvm/rubies/ruby-2.0.0-p0/include/ruby-2.0.0 -I. -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT -I/Users/vesuvius/.rvm/usr/include -I/Users/vesuvius/.rvm/usr/include    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration  -pipe conftest.c  -L. -L/Users/vesuvius/.rvm/rubies/ruby-2.0.0-p0/lib -L/Users/vesuvius/.rvm/usr/lib -L. -fstack-protector -L/Users/vesuvius/.rvm/usr/lib -L/Users/vesuvius/.rvm/usr/lib     -lsqlite3  -lruby-static -lsqlite3  -lpthread -ldl -lobjc "
+conftest.c: In function ‘t’:
+conftest.c:6: warning: implicit declaration of function ‘sqlite3_load_extension’
+Undefined symbols for architecture x86_64:
+  "_sqlite3_load_extension", referenced from:
+      _t in cca2xgWQ.o
+ld: symbol(s) not found for architecture x86_64
+collect2: ld returned 1 exit status
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: /*top*/
+4: int main(void) {return 0;}
+5: extern int t(void);
+6: int t(void) { sqlite3_load_extension(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for sqlite3_open_v2()... -------------------- yes
+
+"/usr/local/bin/gcc-4.2 -o conftest -I/Users/vesuvius/.rvm/rubies/ruby-2.0.0-p0/include/ruby-2.0.0/x86_64-darwin12.2.0 -I/Users/vesuvius/.rvm/rubies/ruby-2.0.0-p0/include/ruby-2.0.0/ruby/backward -I/Users/vesuvius/.rvm/rubies/ruby-2.0.0-p0/include/ruby-2.0.0 -I. -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT -I/Users/vesuvius/.rvm/usr/include -I/Users/vesuvius/.rvm/usr/include    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration  -pipe conftest.c  -L. -L/Users/vesuvius/.rvm/rubies/ruby-2.0.0-p0/lib -L/Users/vesuvius/.rvm/usr/lib -L. -fstack-protector -L/Users/vesuvius/.rvm/usr/lib -L/Users/vesuvius/.rvm/usr/lib     -lsqlite3  -lruby-static -lsqlite3  -lpthread -ldl -lobjc "
+conftest.c: In function ‘t’:
+conftest.c:6: error: ‘sqlite3_open_v2’ undeclared (first use in this function)
+conftest.c:6: error: (Each undeclared identifier is reported only once
+conftest.c:6: error: for each function it appears in.)
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: /*top*/
+4: int main(void) {return 0;}
+5: extern int t(void);
+6: int t(void) { void ((*volatile p)()); p = (void ((*)()))sqlite3_open_v2; return 0; }
+/* end */
+
+"/usr/local/bin/gcc-4.2 -o conftest -I/Users/vesuvius/.rvm/rubies/ruby-2.0.0-p0/include/ruby-2.0.0/x86_64-darwin12.2.0 -I/Users/vesuvius/.rvm/rubies/ruby-2.0.0-p0/include/ruby-2.0.0/ruby/backward -I/Users/vesuvius/.rvm/rubies/ruby-2.0.0-p0/include/ruby-2.0.0 -I. -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT -I/Users/vesuvius/.rvm/usr/include -I/Users/vesuvius/.rvm/usr/include    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration  -pipe conftest.c  -L. -L/Users/vesuvius/.rvm/rubies/ruby-2.0.0-p0/lib -L/Users/vesuvius/.rvm/usr/lib -L. -fstack-protector -L/Users/vesuvius/.rvm/usr/lib -L/Users/vesuvius/.rvm/usr/lib     -lsqlite3  -lruby-static -lsqlite3  -lpthread -ldl -lobjc "
+conftest.c: In function ‘t’:
+conftest.c:6: warning: implicit declaration of function ‘sqlite3_open_v2’
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: /*top*/
+4: int main(void) {return 0;}
+5: extern int t(void);
+6: int t(void) { sqlite3_open_v2(); return 0; }
+/* end */
+
+--------------------
+
+have_func: checking for sqlite3_prepare_v2()... -------------------- yes
+
+"/usr/local/bin/gcc-4.2 -o conftest -I/Users/vesuvius/.rvm/rubies/ruby-2.0.0-p0/include/ruby-2.0.0/x86_64-darwin12.2.0 -I/Users/vesuvius/.rvm/rubies/ruby-2.0.0-p0/include/ruby-2.0.0/ruby/backward -I/Users/vesuvius/.rvm/rubies/ruby-2.0.0-p0/include/ruby-2.0.0 -I. -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT -I/Users/vesuvius/.rvm/usr/include -I/Users/vesuvius/.rvm/usr/include    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration  -pipe conftest.c  -L. -L/Users/vesuvius/.rvm/rubies/ruby-2.0.0-p0/lib -L/Users/vesuvius/.rvm/usr/lib -L. -fstack-protector -L/Users/vesuvius/.rvm/usr/lib -L/Users/vesuvius/.rvm/usr/lib     -lsqlite3  -lruby-static -lsqlite3  -lpthread -ldl -lobjc "
+conftest.c: In function ‘t’:
+conftest.c:6: error: ‘sqlite3_prepare_v2’ undeclared (first use in this function)
+conftest.c:6: error: (Each undeclared identifier is reported only once
+conftest.c:6: error: for each function it appears in.)
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: /*top*/
+4: int main(void) {return 0;}
+5: extern int t(void);
+6: int t(void) { void ((*volatile p)()); p = (void ((*)()))sqlite3_prepare_v2; return 0; }
+/* end */
+
+"/usr/local/bin/gcc-4.2 -o conftest -I/Users/vesuvius/.rvm/rubies/ruby-2.0.0-p0/include/ruby-2.0.0/x86_64-darwin12.2.0 -I/Users/vesuvius/.rvm/rubies/ruby-2.0.0-p0/include/ruby-2.0.0/ruby/backward -I/Users/vesuvius/.rvm/rubies/ruby-2.0.0-p0/include/ruby-2.0.0 -I. -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT -I/Users/vesuvius/.rvm/usr/include -I/Users/vesuvius/.rvm/usr/include    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration  -pipe conftest.c  -L. -L/Users/vesuvius/.rvm/rubies/ruby-2.0.0-p0/lib -L/Users/vesuvius/.rvm/usr/lib -L. -fstack-protector -L/Users/vesuvius/.rvm/usr/lib -L/Users/vesuvius/.rvm/usr/lib     -lsqlite3  -lruby-static -lsqlite3  -lpthread -ldl -lobjc "
+conftest.c: In function ‘t’:
+conftest.c:6: warning: implicit declaration of function ‘sqlite3_prepare_v2’
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: /*top*/
+4: int main(void) {return 0;}
+5: extern int t(void);
+6: int t(void) { sqlite3_prepare_v2(); return 0; }
+/* end */
+
+--------------------
+
+have_type: checking for sqlite3_int64 in sqlite3.h... -------------------- yes
+
+"/usr/local/bin/gcc-4.2 -I/Users/vesuvius/.rvm/rubies/ruby-2.0.0-p0/include/ruby-2.0.0/x86_64-darwin12.2.0 -I/Users/vesuvius/.rvm/rubies/ruby-2.0.0-p0/include/ruby-2.0.0/ruby/backward -I/Users/vesuvius/.rvm/rubies/ruby-2.0.0-p0/include/ruby-2.0.0 -I. -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT -I/Users/vesuvius/.rvm/usr/include -I/Users/vesuvius/.rvm/usr/include    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration  -pipe   -c conftest.c"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <sqlite3.h>
+4: 
+5: /*top*/
+6: typedef sqlite3_int64 conftest_type;
+7: int conftestval[sizeof(conftest_type)?1:-1];
+/* end */
+
+--------------------
+
+have_type: checking for sqlite3_uint64 in sqlite3.h... -------------------- yes
+
+"/usr/local/bin/gcc-4.2 -I/Users/vesuvius/.rvm/rubies/ruby-2.0.0-p0/include/ruby-2.0.0/x86_64-darwin12.2.0 -I/Users/vesuvius/.rvm/rubies/ruby-2.0.0-p0/include/ruby-2.0.0/ruby/backward -I/Users/vesuvius/.rvm/rubies/ruby-2.0.0-p0/include/ruby-2.0.0 -I. -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT -I/Users/vesuvius/.rvm/usr/include -I/Users/vesuvius/.rvm/usr/include    -O3 -fno-fast-math -ggdb3 -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration  -pipe   -c conftest.c"
+checked program was:
+/* begin */
+1: #include "ruby.h"
+2: 
+3: #include <sqlite3.h>
+4: 
+5: /*top*/
+6: typedef sqlite3_uint64 conftest_type;
+7: int conftestval[sizeof(conftest_type)?1:-1];
+/* end */
+
+--------------------
+
