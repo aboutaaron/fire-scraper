@@ -15,7 +15,7 @@ Gem::Specification.new do |s|
   s.rdoc_options = ["--main", "README.markdown"]
   s.require_paths = ["lib"]
   s.rubyforge_project = "arel"
-  s.rubygems_version = "2.0.0"
+  s.rubygems_version = "1.8.25"
   s.summary = "Arel is a SQL AST manager for Ruby"
 
   if s.respond_to? :specification_version then

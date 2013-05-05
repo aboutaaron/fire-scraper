@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.homepage = "https://github.com/josh/rack-ssl"
   s.require_paths = ["lib"]
   s.rubyforge_project = "rack-ssl"
-  s.rubygems_version = "2.0.0"
+  s.rubygems_version = "1.8.25"
   s.summary = "Force SSL/TLS in your app."
 
   if s.respond_to? :specification_version then

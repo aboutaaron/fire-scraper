@@ -14,7 +14,7 @@ Gem::Specification.new do |s|
   s.homepage = "http://getsprockets.org/"
   s.require_paths = ["lib"]
   s.rubyforge_project = "sprockets"
-  s.rubygems_version = "2.0.0"
+  s.rubygems_version = "1.8.25"
   s.summary = "Rack-based asset packaging system"
 
   if s.respond_to? :specification_version then

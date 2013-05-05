@@ -4,4 +4,4 @@
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-Firescraper::Application.config.secret_token = '9b812233af27dd40177019ea5312775bf33cafe14663ca008cd4854d0cae5aa482e8b739c3346bac028fb172fb81d8060a201bef03593e46223af3a529b20622'
+FireScraper::Application.config.secret_token = '5442014f724eee7e81a088471e710625b4334a326e59454064ce62e3a7e450956e815acc6b98a470b69c6126034008bd3692b332666f17c4970e36b0e1be7d5b'

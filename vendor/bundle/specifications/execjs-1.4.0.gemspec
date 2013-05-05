@@ -11,7 +11,7 @@ Gem::Specification.new do |s|
   s.email = ["sstephenson@gmail.com", "josh@joshpeek.com"]
   s.homepage = "https://github.com/sstephenson/execjs"
   s.require_paths = ["lib"]
-  s.rubygems_version = "2.0.0"
+  s.rubygems_version = "1.8.25"
   s.summary = "Run JavaScript code from Ruby"
 
   if s.respond_to? :specification_version then

@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Firescraper::Application.load_tasks
+FireScraper::Application.load_tasks

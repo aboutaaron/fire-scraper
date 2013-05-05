@@ -5,40 +5,25 @@ SHELL = /bin/sh
 V = 0
 Q1 = $(V:1=)
 Q = $(Q1:0=@)
-ECHO1 = $(V:1=@:)
+n=$(NULLCMD)
+ECHO1 = $(V:1=@$n)
 ECHO = $(ECHO1:0=@echo)
 
 #### Start of system configuration section. ####
 
 srcdir = .
-topdir = $(includedir)/$(RUBY_VERSION_NAME)
-hdrdir = $(includedir)/$(RUBY_VERSION_NAME)
-arch_hdrdir = $(rubyhdrdir)/$(arch)
-PATH_SEPARATOR = :
+topdir = /Users/vesuvius/.rvm/rubies/ruby-1.9.3-p392/include/ruby-1.9.1
+hdrdir = /Users/vesuvius/.rvm/rubies/ruby-1.9.3-p392/include/ruby-1.9.1
+arch_hdrdir = /Users/vesuvius/.rvm/rubies/ruby-1.9.3-p392/include/ruby-1.9.1/$(arch)
 VPATH = $(srcdir):$(arch_hdrdir)/ruby:$(hdrdir)/ruby
-prefix = $(DESTDIR)/Users/vesuvius/.rvm/rubies/ruby-2.0.0-p0
-rubysitearchprefix = $(rubylibprefix)/$(sitearch)
-rubyarchprefix = $(rubylibprefix)/$(arch)
+prefix = $(DESTDIR)/Users/vesuvius/.rvm/rubies/ruby-1.9.3-p392
 rubylibprefix = $(libdir)/$(RUBY_BASE_NAME)
 exec_prefix = $(prefix)
-vendorarchhdrdir = $(vendorhdrdir)/$(sitearch)
-sitearchhdrdir = $(sitehdrdir)/$(sitearch)
-rubyarchhdrdir = $(rubyhdrdir)/$(arch)
 vendorhdrdir = $(rubyhdrdir)/vendor_ruby
 sitehdrdir = $(rubyhdrdir)/site_ruby
-rubyhdrdir = $(includedir)/$(RUBY_VERSION_NAME)
-vendorarchdir = $(vendorlibdir)/$(sitearch)
-vendorlibdir = $(vendordir)/$(ruby_version)
+rubyhdrdir = $(includedir)/$(RUBY_BASE_NAME)-$(ruby_version)
 vendordir = $(rubylibprefix)/vendor_ruby
-sitearchdir = $(sitelibdir)/$(sitearch)
-sitelibdir = $(sitedir)/$(ruby_version)
 sitedir = $(rubylibprefix)/site_ruby
-rubyarchdir = $(rubylibdir)/$(arch)
-rubylibdir = $(rubylibprefix)/$(ruby_version)
-sitearchincludedir = $(includedir)/$(sitearch)
-archincludedir = $(includedir)/$(arch)
-sitearchlibdir = $(libdir)/$(sitearch)
-archlibdir = $(libdir)/$(arch)
 ridir = $(datarootdir)/$(RI_BASE_NAME)
 mandir = $(datarootdir)/man
 localedir = $(datarootdir)/locale
@@ -59,14 +44,20 @@ datarootdir = $(prefix)/share
 libexecdir = $(exec_prefix)/libexec
 sbindir = $(exec_prefix)/sbin
 bindir = $(exec_prefix)/bin
-archdir = $(rubyarchdir)
+rubylibdir = $(rubylibprefix)/$(ruby_version)
+archdir = $(rubylibdir)/$(arch)
+sitelibdir = $(sitedir)/$(ruby_version)
+sitearchdir = $(sitelibdir)/$(sitearch)
+vendorlibdir = $(vendordir)/$(ruby_version)
+vendorarchdir = $(vendorlibdir)/$(sitearch)
 
+NULLCMD = :
 
 CC = /usr/local/bin/gcc-4.2
 CXX = g++
-LIBRUBY = $(LIBRUBY_A)
+LIBRUBY = $(LIBRUBY_SO)
 LIBRUBY_A = lib$(RUBY_SO_NAME)-static.a
-LIBRUBYARG_SHARED = 
+LIBRUBYARG_SHARED = -l$(RUBY_SO_NAME)
 LIBRUBYARG_STATIC = -l$(RUBY_SO_NAME)-static
 empty =
 OUTFLAG = -o $(empty)
@@ -74,16 +65,16 @@ COUTFLAG = -o $(empty)
 
 RUBY_EXTCONF_H = 
 cflags   =  $(optflags) $(debugflags) $(warnflags)
-optflags = -O3 -fno-fast-math
-debugflags = -ggdb3
-warnflags = -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wunused-variable -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration
-CFLAGS   = -fno-common $(cflags)  -pipe $(ARCH_FLAG)
+optflags = -O3
+debugflags = -ggdb
+warnflags = -Wall -Wextra -Wno-unused-parameter -Wno-parentheses -Wno-long-long -Wno-missing-field-initializers -Wpointer-arith -Wwrite-strings -Wdeclaration-after-statement -Wshorten-64-to-32 -Wimplicit-function-declaration
+CFLAGS   = -fno-common $(cflags)  -fno-common -pipe $(ARCH_FLAG)
 INCFLAGS = -I. -I$(arch_hdrdir) -I$(hdrdir)/ruby/backward -I$(hdrdir) -I$(srcdir)
 DEFS     = 
-CPPFLAGS = -DHAVE_RB_PROC_ARITY -DHAVE_SQLITE3_INITIALIZE -DHAVE_SQLITE3_BACKUP_INIT -DHAVE_SQLITE3_OPEN_V2 -DHAVE_SQLITE3_PREPARE_V2 -DHAVE_TYPE_SQLITE3_INT64 -DHAVE_TYPE_SQLITE3_UINT64 -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE -D_DARWIN_UNLIMITED_SELECT -D_REENTRANT -I/Users/vesuvius/.rvm/usr/include -I/Users/vesuvius/.rvm/usr/include $(DEFS) $(cppflags)
+CPPFLAGS = -DHAVE_RB_PROC_ARITY -DHAVE_SQLITE3_INITIALIZE -DHAVE_SQLITE3_BACKUP_INIT -DHAVE_SQLITE3_COLUMN_DATABASE_NAME -DHAVE_SQLITE3_ENABLE_LOAD_EXTENSION -DHAVE_SQLITE3_LOAD_EXTENSION -DHAVE_SQLITE3_OPEN_V2 -DHAVE_SQLITE3_PREPARE_V2 -DHAVE_TYPE_SQLITE3_INT64 -DHAVE_TYPE_SQLITE3_UINT64 -D_XOPEN_SOURCE -D_DARWIN_C_SOURCE $(DEFS) $(cppflags) -I/usr/local/opt/libyaml/include -I/usr/local/opt/readline/include -I/usr/local/opt/libxml2/include -I/usr/local/opt/libxslt/include -I/usr/local/opt/libksba/include -I/usr/local/opt/openssl/include -I/usr/local/opt/sqlite/include
 CXXFLAGS = $(CFLAGS) $(cxxflags)
-ldflags  = -L. -fstack-protector -L/Users/vesuvius/.rvm/usr/lib -L/Users/vesuvius/.rvm/usr/lib 
-dldflags = -Wl,-undefined,dynamic_lookup -Wl,-multiply_defined,suppress -L/Users/vesuvius/.rvm/usr/lib -L/Users/vesuvius/.rvm/usr/lib  
+ldflags  = -L.  -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/libxml2/lib -L/usr/local/opt/libxslt/lib -L/usr/local/opt/libksba/lib -L/usr/local/opt/openssl/lib -L/usr/local/opt/sqlite/lib 
+dldflags = -Wl,-undefined,dynamic_lookup -Wl,-multiply_defined,suppress -Wl,-flat_namespace -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/libxml2/lib -L/usr/local/opt/libxslt/lib -L/usr/local/opt/libksba/lib -L/usr/local/opt/openssl/lib -L/usr/local/opt/sqlite/lib 
 ARCH_FLAG = 
 DLDFLAGS = $(ldflags) $(dldflags) $(ARCH_FLAG)
 LDSHARED = $(CC) -dynamic -bundle
@@ -91,20 +82,14 @@ LDSHAREDXX = $(CXX) -dynamic -bundle
 AR = ar
 EXEEXT = 
 
-RUBY_INSTALL_NAME = ruby
-RUBY_SO_NAME = ruby
-RUBYW_INSTALL_NAME = 
-RUBY_VERSION_NAME = $(RUBY_BASE_NAME)-$(ruby_version)
-RUBYW_BASE_NAME = rubyw
 RUBY_BASE_NAME = ruby
-
-arch = x86_64-darwin12.2.0
+RUBY_INSTALL_NAME = ruby
+RUBY_SO_NAME = ruby.1.9.1
+arch = x86_64-darwin12.3.0
 sitearch = $(arch)
-ruby_version = 2.0.0
-ruby = $(bindir)/ruby
+ruby_version = 1.9.1
+ruby = /Users/vesuvius/.rvm/rubies/ruby-1.9.3-p392/bin/ruby
 RUBY = $(ruby)
-ruby_headers = $(hdrdir)/ruby.h $(hdrdir)/ruby/defines.h $(arch_hdrdir)/ruby/config.h
-
 RM = rm -f
 RM_RF = $(RUBY) -run -e rm -- -rf
 RMDIRS = rmdir -p
@@ -119,8 +104,8 @@ TOUCH = exit >
 
 preload = 
 
-libpath = . $(libdir) /Users/vesuvius/.rvm/usr/lib
-LIBPATH =  -L. -L$(libdir) -L/Users/vesuvius/.rvm/usr/lib
+libpath = . $(libdir) /usr/local/opt/libyaml/lib /usr/local/opt/readline/lib /usr/local/opt/libxml2/lib /usr/local/opt/libxslt/lib /usr/local/opt/libksba/lib /usr/local/opt/openssl/lib /usr/local/opt/sqlite/lib
+LIBPATH =  -L. -L$(libdir) -L/usr/local/opt/libyaml/lib -L/usr/local/opt/readline/lib -L/usr/local/opt/libxml2/lib -L/usr/local/opt/libxslt/lib -L/usr/local/opt/libksba/lib -L/usr/local/opt/openssl/lib -L/usr/local/opt/sqlite/lib
 DEFFILE = 
 
 CLEANFILES = mkmf.log
@@ -131,22 +116,18 @@ extout =
 extout_prefix = 
 target_prefix = /sqlite3
 LOCAL_LIBS = 
-LIBS =  -lsqlite3  -lpthread -ldl -lobjc 
-ORIG_SRCS = backup.c database.c exception.c sqlite3.c statement.c
-SRCS = $(ORIG_SRCS) 
+LIBS = $(LIBRUBYARG_SHARED) -lsqlite3  -lpthread -ldl -lobjc 
+SRCS = backup.c database.c exception.c sqlite3.c statement.c
 OBJS = backup.o database.o exception.o sqlite3.o statement.o
-HDRS = $(srcdir)/backup.h $(srcdir)/database.h $(srcdir)/exception.h $(srcdir)/sqlite3_ruby.h $(srcdir)/statement.h
 TARGET = sqlite3_native
-TARGET_NAME = sqlite3_native
-TARGET_ENTRY = Init_$(TARGET_NAME)
 DLLIB = $(TARGET).bundle
 EXTSTATIC = 
 STATIC_LIB = 
 
 BINDIR        = $(bindir)
 RUBYCOMMONDIR = $(sitedir)$(target_prefix)
-RUBYLIBDIR = /Users/vesuvius/Code/railsprojects/fire-scraper/firescraper/vendor/bundle/gems/sqlite3-1.3.7/lib$(target_prefix)
-RUBYARCHDIR = /Users/vesuvius/Code/railsprojects/fire-scraper/firescraper/vendor/bundle/gems/sqlite3-1.3.7/lib$(target_prefix)
+RUBYLIBDIR = /Users/vesuvius/Code/railsprojects/fire-scraper/vendor/bundle/gems/sqlite3-1.3.7/lib$(target_prefix)
+RUBYARCHDIR = /Users/vesuvius/Code/railsprojects/fire-scraper/vendor/bundle/gems/sqlite3-1.3.7/lib$(target_prefix)
 HDRDIR        = $(rubyhdrdir)/ruby$(target_prefix)
 ARCHHDRDIR    = $(rubyhdrdir)/$(arch)/ruby$(target_prefix)
 
@@ -157,29 +138,30 @@ CLEANOBJS     = *.o  *.bak
 all:    $(DLLIB)
 static: $(STATIC_LIB)
 .PHONY: all install static install-so install-rb
-.PHONY: clean clean-so clean-static clean-rb
+.PHONY: clean clean-so clean-rb
 
 clean-static::
 clean-rb-default::
 clean-rb::
 clean-so::
 clean: clean-so clean-static clean-rb-default clean-rb
-		-$(Q)$(RM) $(CLEANLIBS) $(CLEANOBJS) $(CLEANFILES)
+		-$(Q)$(RM) $(CLEANLIBS) $(CLEANOBJS) $(CLEANFILES) .*.time
 
 distclean-rb-default::
 distclean-rb::
 distclean-so::
-distclean-static::
-distclean: clean distclean-so distclean-static distclean-rb-default distclean-rb
-		-$(Q)$(RM) Makefile $(RUBY_EXTCONF_H) conftest.* mkmf.log
-		-$(Q)$(RM) core ruby$(EXEEXT) *~ $(DISTCLEANFILES)
-		-$(Q)$(RMDIRS) $(DISTCLEANDIRS) 2> /dev/null || true
+distclean: clean distclean-so distclean-rb-default distclean-rb
+		@-$(RM) Makefile $(RUBY_EXTCONF_H) conftest.* mkmf.log
+		@-$(RM) core ruby$(EXEEXT) *~ $(DISTCLEANFILES)
+		@-$(RMDIRS) $(DISTCLEANDIRS) 2> /dev/null || true
 
 realclean: distclean
 install: install-so install-rb
 
-install-so: $(DLLIB)
-	$(INSTALL_PROG) $(DLLIB) $(RUBYARCHDIR)
+install-so: $(RUBYARCHDIR)/$(DLLIB)
+$(RUBYARCHDIR)/$(DLLIB): $(DLLIB)
+	-$(Q)$(MAKEDIRS) $(@D)
+	$(INSTALL_PROG) $(DLLIB) $(@D)
 clean-static::
 	-$(Q)$(RM) $(STATIC_LIB)
 install-rb: pre-install-rb install-rb-default
@@ -230,8 +212,7 @@ $(DLLIB): $(OBJS) Makefile
 	$(ECHO) linking shared-object sqlite3/$(DLLIB)
 	-$(Q)$(RM) $(@)
 	$(Q) $(LDSHARED) -o $@ $(OBJS) $(LIBPATH) $(DLDFLAGS) $(LOCAL_LIBS) $(LIBS)
-	$(Q) test -z '$(RUBY_CODESIGN)' || codesign -s '$(RUBY_CODESIGN)' -f $@
 
 
 
-$(OBJS): $(HDRS) $(ruby_headers)
+$(OBJS): $(hdrdir)/ruby.h $(hdrdir)/ruby/defines.h $(arch_hdrdir)/ruby/config.h
