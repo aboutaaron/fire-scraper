@@ -1,5 +1,5 @@
 class Fire < ActiveRecord::Base
-  attr_accessible :acreage, :county_id, :date, :name, :containment, :location
+  attr_accessible :acreage, :county_id, :date, :name, :containment, :location, :year
 
   validates :acreage, :date, :name, :county_id, :location, presence: true
 
