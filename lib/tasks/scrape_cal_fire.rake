@@ -112,7 +112,7 @@ namespace :populate do
                 puts
                 puts "HIT AN ERROR: Value could not be save because #{e}"
                 puts
-                sleep 5
+                #sleep 5
             end
         end
     end
