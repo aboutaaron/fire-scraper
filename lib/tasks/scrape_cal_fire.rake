@@ -110,8 +110,9 @@ namespace :populate do
 
             rescue StandardError => e
                 puts
-                puts "Value could not be save because #{e}"
+                puts "HIT AN ERROR: Value could not be save because #{e}"
                 puts
+                sleep 5
             end
         end
     end
