@@ -48,7 +48,7 @@ namespace :populate do
                 #######################
                 # Date the fire started
                 #######################
-                dates << fire.search(":nth-child(7) td:nth-child(2)").text
+                dates << Date.strptime(fire.search(":nth-child(7) td:nth-child(2)").text, '%b %d, %Y %I:%M %p').to_s
                 dates.each do |val|
                     f.date = val
                 end
