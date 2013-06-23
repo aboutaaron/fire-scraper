@@ -1,4 +1,6 @@
 require 'mechanize'
+require 'chronic'
+
 namespace :populate do
     desc "grab counties from CAL FIRE website"
     task :counties => :environment do
@@ -48,7 +50,7 @@ namespace :populate do
                 #######################
                 # Date the fire started
                 #######################
-                dates << Date.strptime(fire.search(":nth-child(7) td:nth-child(2)").text, '%b %d, %Y %l:%M %p').to_s
+                dates << Chronic::parse(fire.search(":nth-child(7) td:nth-child(2)").text)
                 dates.each do |val|
                     f.date = val
                 end
