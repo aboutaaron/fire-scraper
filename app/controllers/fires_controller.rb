@@ -11,6 +11,8 @@ class FiresController < ApplicationController
   def show
     @county_fires = find_fires
     @fires = @county_fires.fires.find(params[:id])
+
+    render json: @fires
   end
 
   # http://railscasts.com/episodes/154-polymorphic-association?view=asciicast
