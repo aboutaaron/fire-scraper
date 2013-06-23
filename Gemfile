@@ -13,6 +13,10 @@ gem 'mechanize'
 gem 'chronic'
 gem 'friendly_id'
 
+group :development do
+  gem 'compass'
+end
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

@@ -31,10 +31,16 @@ GEM
     arel (3.0.2)
     builder (3.0.4)
     chronic (0.9.1)
+    chunky_png (1.2.8)
+    compass (0.12.2)
+      chunky_png (~> 1.2)
+      fssm (>= 0.2.7)
+      sass (~> 3.1)
     domain_name (0.5.12)
       unf (>= 0.0.5, < 1.0.0)
     erubis (2.7.0)
     friendly_id (4.0.9)
+    fssm (0.2.10)
     hike (1.2.3)
     http-cookie (1.0.1)
       domain_name (~> 0.5)
@@ -91,6 +97,7 @@ GEM
     rake (10.1.0)
     rdoc (3.12.2)
       json (~> 1.4)
+    sass (3.2.9)
     sprockets (2.2.2)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -113,6 +120,7 @@ PLATFORMS
 
 DEPENDENCIES
   chronic
+  compass
   friendly_id
   mechanize
   rails (= 3.2.13)
