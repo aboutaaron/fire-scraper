@@ -3,7 +3,7 @@ class FiresController < ApplicationController
   # GET /fires
   # GET /fires.json
   def index
-    @fires = Fire.find_by_county_id()
+    @fires = County.find(params[:id])
 
     render json: @fires
   end
