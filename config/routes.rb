@@ -1,13 +1,13 @@
 FireScraper::Application.routes.draw do
-  resources :counties, :path => '', except: [:new, :edit] do
+  resources :counties, except: [:new, :edit] do
     resources :fires, except: [:new, :edit]
   end
 
   # Drops counties from URL
   # http://jasoncodes.com/posts/rails-3-nested-resource-slugs
-  resources :counties, :path => '', :only => [] do
-    resources :fires, :path => '', :except => [:index]
-  end
+  #resources :counties, :path => '', :only => [] do
+  #  resources :fires, :path => '', :except => [:index]
+  #end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

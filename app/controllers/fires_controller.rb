@@ -2,16 +2,23 @@ class FiresController < ApplicationController
   # GET /fires
   # GET /fires.json
   def index
-    @fires = Fire.find(params[:county_id])
+    @county_fires = find_fires
+    @fires = @county_fires.fires
 
     render json: @fires
   end
 
-  # GET /fires/1
-  # GET /fires/1.json
   def show
-    @fire = Fire.find(params[:id])
+    @county_fires = find_fires
+    @fires = @county_fires.fires.find(params[:id])
+  end
 
-    render json: @fire
+  # http://railscasts.com/episodes/154-polymorphic-association?view=asciicast
+  def find_fires
+    params.each do |name, value|
+      if name =~ /(.+)_id$/
+        return $1.classify.constantize.find(value)
+      end
+    end
   end
 end
