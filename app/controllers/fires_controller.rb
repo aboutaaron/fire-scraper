@@ -8,6 +8,8 @@ class FiresController < ApplicationController
     render json: @fires
   end
 
+  # This doesn't work well because Fire ids are created as fires are
+  # Perhaps it's time to rewrite the scrapre
   def show
     @county_fires = find_fires
     @fires = @county_fires.fires.find(params[:id])
