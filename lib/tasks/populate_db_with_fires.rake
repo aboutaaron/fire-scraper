@@ -34,7 +34,7 @@ namespace :populate do
         locations =[]
         contained = []
         counties_arr = []
-        a.page.search(".incident_table").drop(1).each do |fire|
+        a.page.search(".incident_table").each do |fire|
             # New Fire instance
             f = Fire.new
             begin
