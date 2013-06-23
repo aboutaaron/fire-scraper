@@ -15,36 +15,13 @@ class CountiesController < ApplicationController
     render json: @county
   end
 
-  # POST /counties
-  # POST /counties.json
-  def create
-    @county = County.new(params[:county])
+  # GET /counties/1/fires
+  # GET /counties/1/fires.json
+  def show_fires
+    county = County.find(params[:id])
 
-    if @county.save
-      render json: @county, status: :created, location: @county
-    else
-      render json: @county.errors, status: :unprocessable_entity
-    end
-  end
+    @county_fires = county.fires.find_by_county_id(county.id)
 
-  # PATCH/PUT /counties/1
-  # PATCH/PUT /counties/1.json
-  def update
-    @county = County.find(params[:id])
-
-    if @county.update_attributes(params[:county])
-      head :no_content
-    else
-      render json: @county.errors, status: :unprocessable_entity
-    end
-  end
-
-  # DELETE /counties/1
-  # DELETE /counties/1.json
-  def destroy
-    @county = County.find(params[:id])
-    @county.destroy
-
-    head :no_content
+    render json: @county_fires
   end
 end
