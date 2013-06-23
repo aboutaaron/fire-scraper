@@ -1,0 +1,7 @@
+Sun, 23 Jun 2013 14:35:14 -0700
+doc/README_FOR_APP	Sat, 22 Jun 2013 18:21:16 -0700
+app/controllers/application_controller.rb	Sun, 23 Jun 2013 13:41:08 -0700
+app/controllers/counties_controller.rb	Sun, 23 Jun 2013 13:41:08 -0700
+app/controllers/fires_controller.rb	Sun, 23 Jun 2013 13:41:08 -0700
+app/models/county.rb	Sun, 23 Jun 2013 13:41:08 -0700
+app/models/fire.rb	Sat, 22 Jun 2013 18:33:32 -0700
