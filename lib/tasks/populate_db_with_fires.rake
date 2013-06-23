@@ -34,7 +34,7 @@ namespace :populate do
         locations =[]
         contained = []
         counties_arr = []
-        a.page.search(".incident_table").each do |fire|
+        a.page.search(".incident_table").drop(1).each do |fire|
             # New Fire instance
             f = Fire.new
             begin
@@ -50,7 +50,7 @@ namespace :populate do
                 #######################
                 # Date the fire started
                 #######################
-                dates << Chronic::parse(fire.search(":nth-child(7) td:nth-child(2)").text)
+                dates << Chronic::parse(fire.search(".even:nth-child(7) td:nth-child(2) , .even:nth-child(8) td:nth-child(2)").text)
                 dates.each do |val|
                     f.date = val
                 end
