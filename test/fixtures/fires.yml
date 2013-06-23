@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  acreage: 1
+  containment: MyString
+  county_id: 1
+  date: 2013-06-22 18:27:26
+  location: MyString
+  name: MyString
+
+two:
+  acreage: 1
+  containment: MyString
+  county_id: 1
+  date: 2013-06-22 18:27:26
+  location: MyString
+  name: MyString
