@@ -41,6 +41,7 @@ GEM
     erubis (2.7.0)
     friendly_id (4.0.9)
     fssm (0.2.10)
+    geocoder (1.1.8)
     hike (1.2.3)
     http-cookie (1.0.1)
       domain_name (~> 0.5)
@@ -122,6 +123,7 @@ DEPENDENCIES
   chronic
   compass
   friendly_id
+  geocoder
   mechanize
   rails (= 3.2.13)
   rails-api

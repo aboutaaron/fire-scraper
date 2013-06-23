@@ -12,6 +12,7 @@ gem 'sqlite3'
 gem 'mechanize'
 gem 'chronic'
 gem 'friendly_id'
+gem 'geocoder'
 
 group :development do
   gem 'compass'
