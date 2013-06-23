@@ -1,4 +1,6 @@
 FireScraper::Application.routes.draw do
+  resources :counties, except: [:new, :edit]
+
   resources :fires, except: [:new, :edit]
 
   # The priority is based upon order of creation:
