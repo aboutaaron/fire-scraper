@@ -35,14 +35,10 @@ GEM
       unf (>= 0.0.5, < 1.0.0)
     erubis (2.7.0)
     friendly_id (4.0.9)
-    has_scope (0.5.1)
     hike (1.2.3)
     http-cookie (1.0.1)
       domain_name (~> 0.5)
     i18n (0.6.1)
-    inherited_resources (1.4.0)
-      has_scope (~> 0.5.0)
-      responders (~> 0.9)
     journey (1.0.4)
     json (1.8.0)
     mail (2.5.4)
@@ -95,8 +91,6 @@ GEM
     rake (10.1.0)
     rdoc (3.12.2)
       json (~> 1.4)
-    responders (0.9.3)
-      railties (~> 3.1)
     sprockets (2.2.2)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -120,7 +114,6 @@ PLATFORMS
 DEPENDENCIES
   chronic
   friendly_id
-  inherited_resources
   mechanize
   rails (= 3.2.13)
   rails-api
