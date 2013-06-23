@@ -1,8 +1,9 @@
 class FiresController < ApplicationController
+
   # GET /fires
   # GET /fires.json
   def index
-    @fires = Fire.all
+    @fires = Fire.find_by_county_id()
 
     render json: @fires
   end
