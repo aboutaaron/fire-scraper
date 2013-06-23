@@ -9,6 +9,9 @@ gem 'rails-api'
 
 gem 'sqlite3'
 
+gem 'mechanize'
+gem 'chronic'
+
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
