@@ -11,13 +11,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130623022048) do
+ActiveRecord::Schema.define(:version => 20130623232005) do
 
   create_table "counties", :force => true do |t|
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.string   "slug"
+    t.float    "latitude"
+    t.float    "longitude"
   end
 
   add_index "counties", ["slug"], :name => "index_counties_on_slug", :unique => true
