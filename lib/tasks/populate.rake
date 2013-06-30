@@ -23,6 +23,7 @@ namespace :app do
 
         # County
         county.name = incident.search(":nth-child(3) td:nth-child(2)").text.gsub(/\b\sCounty|Counties/,'').gsub(/\W$/,"").gsub(/\s$/,"")
+        county.save!
 
         # Fire name
         fire.name = incident.search(".odd:nth-child(2) td:nth-child(2)").text
@@ -43,6 +44,7 @@ namespace :app do
         else
             fire.containment = 0
         end
+        fire.save!
 
         # County ID
         #this_county = fire.search(":nth-child(3) td:nth-child(2)").text.gsub(/\b\sCounty|Counties/,'').gsub(/\W$/,"").gsub(/\s$/,"")
