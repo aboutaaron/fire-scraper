@@ -56,7 +56,7 @@ namespace :populate do
         end
 
         # County ID
-        this_county = fire.search(":nth-child(3) td:nth-child(2)").text.gsub(/\b\sCounty|Counties/,'').gsub(/\W$/,"").gsub(/\s$/,"")
+        this_county = incident.search(":nth-child(3) td:nth-child(2)").text.gsub(/\b\sCounty|Counties/,'').gsub(/\W$/,"").gsub(/\s$/,"")
         fire.county_id = County.find_by_name(this_county).id
 
         # Save Fire
