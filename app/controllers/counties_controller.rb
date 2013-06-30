@@ -1,10 +1,15 @@
 class CountiesController < ApplicationController
+  # Allow Rails respond_to to work
+  include ActionController::MimeResponds
+
   # GET /counties
   # GET /counties.json
   def index
     @counties = County.all
 
-    render json: @counties
+    respond_to do |format|
+      format.json { render }
+    end
   end
 
   # GET /counties/1
