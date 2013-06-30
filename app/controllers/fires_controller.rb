@@ -9,7 +9,7 @@ class FiresController < ApplicationController
   # GET /fires/1
   # GET /fires/1.json
   def show
-    @fires = Fires.find(params[:id])
+    @fires = Fire.find(params[:id])
     render json: @fires
   end
 end
