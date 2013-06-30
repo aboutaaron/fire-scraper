@@ -1,3 +1,3 @@
 collection @fires
 
-attributes :acreage, :containment, :date, :location, :name
+attributes :name, :date, :acreage, :containment, :location
