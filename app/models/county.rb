@@ -6,6 +6,7 @@ class County < ActiveRecord::Base
   validates :name, uniqueness: true, presence: true
 
   has_many :fires
+  accepts_nested_attributes_for :fires
 
   geocoded_by :full_address
   after_validation :geocode
