@@ -1,6 +1,6 @@
 FireScraper::Application.routes.draw do
-  resources :counties, except: [:new, :edit]
-  resources :fires, except: [:new, :edit]
+  resources :counties, :only => [:show, :index]
+  resources :fires, :only => [:index]
 
   # Drops counties from URL
   # http://jasoncodes.com/posts/rails-3-nested-resource-slugs
