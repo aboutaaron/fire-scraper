@@ -3,7 +3,7 @@ require 'chronic'
 
 namespace :populate do
     desc 'import county information from Cal Fire'
-    task :counties => environment do
+    task :counties => :environment do
         a = Mechanize.new
         a.get('http://cdfdata.fire.ca.gov/incidents/incidents_current?sort=incident_priority&pc=all')
         a.page.search(".incident_table").drop(1).each do |incident|
