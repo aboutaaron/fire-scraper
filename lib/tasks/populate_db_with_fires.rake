@@ -1,7 +1,7 @@
 require 'mechanize'
 require 'chronic'
 
-namespace :populate do
+namespace :populate_old do
     desc "grab counties from CAL FIRE website"
     task :counties => :environment do
         a = Mechanize.new
