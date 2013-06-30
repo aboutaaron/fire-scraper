@@ -13,6 +13,7 @@ gem 'mechanize'
 gem 'chronic'
 gem 'friendly_id'
 gem 'geocoder'
+gem 'rabl'
 
 group :development do
   gem 'compass'
