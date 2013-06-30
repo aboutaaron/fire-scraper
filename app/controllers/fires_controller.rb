@@ -11,4 +11,5 @@ class FiresController < ApplicationController
   def show
     @fires = Fires.find(params[:id])
     render json: @fires
+  end
 end
