@@ -48,7 +48,7 @@ namespace :populate do
                 fire.acreage = metadata.match(/^[,0-9]*/).to_s.gsub(',','').to_i
 
                 # Percentage contained
-                contained = metadata.match(/\d%.contained|.\d\d%.contained/).to_s
+                contained = metadata.match(/\d*%/).gsub('%','').to_i
                 if contained != ""
                     fire.containment = contained
                 else
