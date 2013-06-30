@@ -1,4 +1,5 @@
 class FiresController < ApplicationController
+	include ActionController::MimeResponds
   # GET /fires
   # GET /fires.json
   def index
@@ -8,3 +9,4 @@ class FiresController < ApplicationController
       format.json { render }
     end
   end
+end

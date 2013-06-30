@@ -1,2 +1,2 @@
 object @counties
-attributes :name, :latitude, :longitude, :id
+attributes :name, :latitude, :longitude, :id, :slug
