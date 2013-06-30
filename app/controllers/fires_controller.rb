@@ -3,13 +3,8 @@ class FiresController < ApplicationController
   # GET /fires.json
   def index
     @fires = Fire.all
-    render json: @fires
+    
+    respond_to do |format|
+      format.json { render }
+    end
   end
-
-  # GET /fires/1
-  # GET /fires/1.json
-  def show
-    @fires = Fire.find(params[:id])
-    render json: @fires
-  end
-end
