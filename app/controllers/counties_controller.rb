@@ -17,6 +17,8 @@ class CountiesController < ApplicationController
   def show
     @county = County.find(params[:id])
 
-    render json: @county
+    respond_to do |format|
+      format.json { render }
+    end
   end
 end

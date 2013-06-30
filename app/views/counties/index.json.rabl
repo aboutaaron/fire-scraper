@@ -1,2 +1,2 @@
-collection @counties
+object @counties
 attributes :name, :latitude, :longitude
