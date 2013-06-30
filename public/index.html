@@ -12,19 +12,16 @@
         <h2>Routes</h2>
         <ul>
             <li>
-                <a href="/counties">/counties</a>
+                <a href="/counties.json">/counties.json</a>
             </li>
             <li>
-                <p>/counties/{{ county name }}</p>
-            </li>
-            <li>
-                <p>/counties/{{county name}}/fires</p>
+                <p>/counties/{{ county-slug }}.json</p>
             </li>
             <aside>
                 <p>For example: Riverside</p>
                 <ul>
                     <li>
-                        <a href="/counties/riverside/fires">/counties/riverside/fires</a>
+                        <a href="/counties/riverside.json">/counties/riverside.json</a>
                     </li>
                 </ul>
                 <br>
@@ -41,12 +38,12 @@
 
         jQuery(document).ready(function($) {
             $.ajax({
-                url: '/counties/',
+                url: '/counties.json',
                 success: function (data) {
                     console.log(data);
                     $.each(data, function () {
                         $('#counties-available')
-                            .append("<li><a href='/counties/" + this.county.slug + "/fires'>" + this.county.slug +'</a></li>')
+                            .append("<li><a href='/counties/" + this.county.slug + ".json'>" + this.county.slug +'</a></li>')
                     })
                 }
             })

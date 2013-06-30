@@ -20,7 +20,7 @@ namespace :app do
       County.where(:name => @county).first_or_create
 
       # Store the fire name and then create it if it doesn't exist
-      @fire = incident.search(".odd:nth-child(2) td:nth-child(2)").text
+      @fire = incident.search(".odd:nth-child(2) td:nth-child(2)").text.gsub(/\W$/,'')
       Fire.where(:name => @fire).first_or_create do |fire|
         fire.date = Chronic::parse(incident.search(".even:nth-child(7) td:nth-child(2) , .even:nth-child(8) td:nth-child(2)").text)
         fire.location = incident.search(".odd:nth-child(4) td:nth-child(2)").text
