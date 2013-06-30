@@ -16,6 +16,7 @@ gem 'geocoder'
 
 group :development do
   gem 'compass'
+  gem 'gemrat'
 end
 
 # To use ActiveModel has_secure_password
