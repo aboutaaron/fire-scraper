@@ -44,11 +44,13 @@ namespace :app do
         else
             fire.containment = 0
         end
-        fire.save!
 
         # County ID
         this_county = fire.search(":nth-child(3) td:nth-child(2)").text.gsub(/\b\sCounty|Counties/,'').gsub(/\W$/,"").gsub(/\s$/,"")
         fire.county_id = County.find_by_name(this_county).id
+
+        # Save Fire
+        fire.save!
 
       rescue StandardError => e
         puts "There was an error: #{e}"
