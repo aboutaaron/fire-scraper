@@ -14,6 +14,7 @@ gem 'chronic'
 gem 'friendly_id'
 gem 'geocoder'
 gem 'rabl'
+gem 'keen'
 
 group :development do
   gem 'compass'
