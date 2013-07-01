@@ -21,7 +21,8 @@ namespace :app do
 
       # Store the fire name and then create it if it doesn't exist
       @fire = incident.search(".odd:nth-child(2) td:nth-child(2)").text.gsub(/\W$/,'')
-      Fire.where(:name => @fire).first_or_create do |fire|
+      # create or initialize
+      Fire.where(:name => @fire).first_or_initialize do |fire|
         fire.date = Chronic::parse(incident.search(".even:nth-child(7) td:nth-child(2) , .even:nth-child(8) td:nth-child(2)").text)
         fire.location = incident.search(".odd:nth-child(4) td:nth-child(2)").text
         fire.acreage = metadata.match(/^[,0-9]*/).to_s.gsub(',','').to_i
