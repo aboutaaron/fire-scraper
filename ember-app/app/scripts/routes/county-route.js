@@ -1,9 +1,5 @@
-App.CountyRoute = Ember.Route.extend({
-	model: function (params) {
-		return jQuery.getJSON('/counties/' + params.slug)
-	},
-
-	seralize: function (model) {
-		return { slug: model.slug };
+App.CountiesRoute = Ember.Route.extend({
+	renderTemplate: function () {
+		this.render('app/templates/counties', { into: 'app/templates/counties' });
 	}
-});
+})
