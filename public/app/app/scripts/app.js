@@ -15,21 +15,22 @@ App.Router.map(function () {
 
 App.IndexRoute = Ember.Route.extend({
   model: function () {
-    return ['red', 'yellow', 'blue'];
+    return App.County.all();
   }
 });
 
 // Model
-App.County = Ember.object.extend();
+App.County = Ember.Object.extend();
 
 App.County.reopenClass({
 	all: function() {
-		return $.getJSON("scripts/temp_counties.json").then(
+		return $.getJSON("/scripts/temp_counties.json").then(
 			function (response) {
 			var counties = [];
+			console.log(response)
 
-			response.counties.forEach( function(county) {
-				counties.push( App.County,create(county) );
+			response.forEach( function(county) {
+				counties.push( App.County.create(county) );
 
 				return counties;
 			});
