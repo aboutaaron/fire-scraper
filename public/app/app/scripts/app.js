@@ -18,3 +18,23 @@ App.IndexRoute = Ember.Route.extend({
     return ['red', 'yellow', 'blue'];
   }
 });
+
+// Model
+App.County = Ember.object.extend();
+
+App.County.reopenClass({
+	all: function() {
+		return $.getJSON("/counties.json").then(
+			function (response) {
+			
+				
+			response.
+		})
+	}
+})
+
+App.CountyRoute = Ember.Route.extend({
+	setupController: function (controller) {
+		controller.set();
+	}
+});
