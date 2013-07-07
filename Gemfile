@@ -19,6 +19,7 @@ gem 'keen'
 group :development do
   gem 'compass'
   gem 'gemrat'
+  gem 'rack-cors', :require => 'rack/cors'
 end
 
 # To use ActiveModel has_secure_password
