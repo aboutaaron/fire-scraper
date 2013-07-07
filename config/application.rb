@@ -60,6 +60,7 @@ module FireScraper
     config.assets.version = '1.0'
 
     # Rack Cors setup
+    # THIS IS FOR DEVELOPMENT ONLY
     config.middleware.use Rack::Cors do
       allow do
         origins 'localhost:9000'
