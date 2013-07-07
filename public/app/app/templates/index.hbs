@@ -1,7 +1,5 @@
-<div class="hero-unit">
-  <ul>
-  {{#each object in model}}
-    <li>{{object.county.name}}</li>
-  {{/each}}
-  </ul>
-</div>
+<ul>
+{{#each object in model}}
+<li>{{object.county.name}} | No. of fires: {{object.county.fires.length}} </li>
+{{/each}}
+</ul>
