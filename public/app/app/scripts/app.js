@@ -10,7 +10,7 @@ var App = window.App = Ember.Application.create();
 
 App.Router.map(function () {
   // put your routes here
-  this.resource( 'counties' );
+  //this.resource( 'counties' );
 });
 
 App.IndexRoute = Ember.Route.extend({
@@ -30,9 +30,9 @@ App.County.reopenClass({
 
 			response.counties.forEach( function(county) {
 				counties.push( App.County.create(county) );
-
-				return counties;
 			});
+
+			return counties;
 		});
 	}
 });
