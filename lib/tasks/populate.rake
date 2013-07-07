@@ -20,11 +20,11 @@ namespace :app do
       @fire = incident.search(".odd:nth-child(2) td:nth-child(2)").text.gsub(/\W$/,'')
       fire = Fire.where(:name => @fire).first_or_initialize
       fire.update_attributes(
-        :date => Chronic::parse(incident.search(".even:nth-child(7) td:nth-child(2) , .even:nth-child(8) td:nth-child(2)").text)
-        :location => incident.search(".odd:nth-child(4) td:nth-child(2)").text
-        :acreage => metadata.match(/^[,0-9]*/).to_s.gsub(',','').to_i
-        :county_id => County.find_by_name(@county).id
-        :containment => metadata.match(/\d*%/).to_s.gsub('%','').to_i
+        :date => Chronic::parse(incident.search(".even:nth-child(7) td:nth-child(2) , .even:nth-child(8) td:nth-child(2)").text),
+        :location => incident.search(".odd:nth-child(4) td:nth-child(2)").text,
+        :acreage => metadata.match(/^[,0-9]*/).to_s.gsub(',','').to_i,
+        :county_id => County.find_by_name(@county).id,
+        :containment => metadata.match(/\d*%/).to_s.gsub('%','').to_i,
       )
     end
   end
