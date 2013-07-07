@@ -58,5 +58,13 @@ module FireScraper
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    # Rack Cors setup
+    config.middleware.use Rack::Cors do
+      allow do
+        origins 'localhost:9000'
+        resource '*', :methods => :get
+      end
+    end
   end
 end
