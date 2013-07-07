@@ -1,4 +1,4 @@
-collection @counties => :counties
+object @counties
 attributes :name, :latitude, :longitude, :id, :slug
 
 child :fires do

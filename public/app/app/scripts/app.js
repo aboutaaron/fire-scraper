@@ -28,7 +28,7 @@ App.County.reopenClass({
 			function (response) {
 			var counties = [];
 
-			response.counties.forEach( function(county) {
+			response.forEach( function(county) {
 				counties.push( App.County.create(county) );
 			});
 
