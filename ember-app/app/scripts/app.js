@@ -10,7 +10,8 @@ require('scripts/models/*');
 
 App.Router.map(function () {
   // put your routes here
-  //this.resource( 'counties' );
+  this.resource( 'counties' );
+  this.resource('county', { path: '/counties/:slug' })
 });
 
 App.IndexRoute = Ember.Route.extend({
