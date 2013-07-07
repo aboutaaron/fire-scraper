@@ -27,9 +27,8 @@ App.County.reopenClass({
 		return $.getJSON("/scripts/temp_counties.json").then(
 			function (response) {
 			var counties = [];
-			console.log(response)
 
-			response.forEach( function(county) {
+			response.counties.forEach( function(county) {
 				counties.push( App.County.create(county) );
 
 				return counties;
