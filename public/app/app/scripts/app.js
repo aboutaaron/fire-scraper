@@ -26,12 +26,16 @@ App.County.reopenClass({
 	all: function() {
 		return $.getJSON("/counties.json").then(
 			function (response) {
-			
-				
-			response.
-		})
+			var counties = [];
+
+			response.counties.forEach( function(county) {
+				counties.push( App.County,create(county) );
+
+				return counties;
+			});
+		});
 	}
-})
+});
 
 App.CountyRoute = Ember.Route.extend({
 	setupController: function (controller) {
