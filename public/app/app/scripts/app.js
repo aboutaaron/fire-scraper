@@ -24,7 +24,7 @@ App.County = Ember.object.extend();
 
 App.County.reopenClass({
 	all: function() {
-		return $.getJSON("/counties.json").then(
+		return $.getJSON("scripts/temp_counties.json").then(
 			function (response) {
 			var counties = [];
 
