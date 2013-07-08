@@ -8,7 +8,7 @@ App.Router.map(function () {
   this.resource('counties');
 });
 
-App.IndexRoute = Ember.Route.extend({
+App.CountiesRoute = Ember.Route.extend({
   model: function () {
     return App.County.all();
   }
