@@ -5,7 +5,9 @@ App.Router.reopen({
 
 App.Router.map(function () {
   // put your routes here
-  this.resource('counties')
+  this.resource('counties', function () {
+  	this.route('county');
+  })
 });
 
 App.IndexRoute = Ember.Route.extend({
@@ -16,6 +18,6 @@ App.IndexRoute = Ember.Route.extend({
 
 App.CountiesRoute = Ember.Route.extend({
 	model: function () {
-		return App.County.find()
+		return App.County.all
 	}
-});
+})
