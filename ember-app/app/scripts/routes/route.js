@@ -5,6 +5,7 @@ App.Router.reopen({
 
 App.Router.map(function () {
   // put your routes here
+  this.resource('counties');
 });
 
 App.IndexRoute = Ember.Route.extend({
