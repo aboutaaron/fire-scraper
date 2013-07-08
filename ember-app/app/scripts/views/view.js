@@ -1,0 +1,1 @@
+App.CountiesView = Ember.CollectionView.create({});
