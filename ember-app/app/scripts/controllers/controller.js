@@ -1,1 +1,0 @@
-App.CountiesController = Ember.ArrayController.extend({});
