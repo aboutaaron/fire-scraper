@@ -1,1 +1,6 @@
-<h1>County Template</h1>
+<h1>Counties</h1>
+<ul>
+{{#each object in model}}
+<li>{{object.county.name}} | No. of fires: {{object.county.fires.length}} </li>
+{{/each}}
+</ul>
