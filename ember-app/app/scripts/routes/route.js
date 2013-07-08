@@ -13,3 +13,9 @@ App.IndexRoute = Ember.Route.extend({
     return App.County.all();
   }
 });
+
+App.CountiesRoute = Ember.Route.extend({
+	model: function () {
+		return App.County.all()
+	}
+});
