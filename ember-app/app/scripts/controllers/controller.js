@@ -1,3 +1,1 @@
-App.ApplicationController = Ember.Controller.extend({
-	// code
-})
+App.CountiesController = Ember.ArrayController.extend({});
