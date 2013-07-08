@@ -25,7 +25,7 @@ App.County.reopenClass({
 	},
 
 	findCountyBySlug: function (slug) {
-		return this.load().then(function (counties) {
+		return this.all().then(function (counties) {
 			return counties.findProperty('slug', slug);
 		});
 	}
