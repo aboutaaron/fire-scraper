@@ -1,6 +1,6 @@
 FireScraper::Application.routes.draw do
-  resources :counties, :only => [:show, :index]
-  resources :fires, :only => [:index]
+  resources :counties, :only => [:show, :index], defaults: { format: :json }
+  resources :fires, :only => [:index], defaults: { format: :json }
 
   # Drops counties from URL
   # http://jasoncodes.com/posts/rails-3-nested-resource-slugs
