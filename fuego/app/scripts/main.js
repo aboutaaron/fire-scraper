@@ -10,7 +10,7 @@ Fuego = {
 	fetch: function () {
 		d3.json('http://0.0.0.0:3000/counties/', function (error, json) {
 			if (error) return console.warn(error);
-			
+			data = json;
 			Fuego.paint(json);
 		});
 	},
