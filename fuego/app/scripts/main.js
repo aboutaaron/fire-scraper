@@ -1,3 +1,5 @@
+'use strict';
+
 var Fuego = Fuego || {}, data;
 
 Fuego = {
@@ -7,12 +9,20 @@ Fuego = {
 	},
 
 	fetch: function () {
-		d3.json('http://0.0.0.0:3000/counties/', function (err, json) {
-		  if (err) console.warn(err);
-		  
-		  json.forEach( function (object) {
-		  	Fuego.paint(object);
-		  });
+	  d3.selectAll('path, polyline, polygon')
+	    .attr('fill', function(d) {
+	      var abbr = this.id.toLowerCase().replace(/_/g,'-');
+	      var fires, json;
+
+				d3.json('http://0.0.0.0:3000/counties/', function (json) {
+				  json.forEach(function (object) {
+				  	if (abbr == object.county.slug) {
+				  		//console.log(object.county.fires.length)
+				  		fires = object.county.fires.length;
+				  	}
+				  });
+				  console.log(fires + ' ' + abbr);
+				});
 		});
 	},
 
@@ -26,19 +36,6 @@ Fuego = {
            d > 1   ? '#FED976' :
            d > 0   ? '#FFEDA0' :
                       '#E2E2E2';
-	},
-
-	paint: function (object) {
-		d3.select('path, polyline, polygon')
-			.attr('fill', function (d) {
-				var countyId = this.id;
-				var fires;
-
-				// if the county if and json dump match
-				if (countyId == object.county.name)
-					return Fuego._getColor(object.county.fires.length);
-			});
-			//return Fuego._getColor(fires)
 	}
 }
 
