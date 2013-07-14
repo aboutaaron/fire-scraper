@@ -4,29 +4,33 @@ var Fuego = Fuego || {}, data;
 
 Fuego = {
 	init: function () {
-		console.log('Loaded');
 		Fuego.fetch();
 	},
 
 	fetch: function () {
-	  d3.selectAll('path, polyline, polygon')
-	    .attr('fill', function(d) {
-	      var abbr = this.id.toLowerCase().replace(/_/g,'-');
-	      var fires, json;
-
-				d3.json('http://0.0.0.0:3000/counties/', function (json) {
-				  json.forEach(function (object) {
-				  	if (abbr == object.county.slug) {
-				  		//console.log(object.county.fires.length)
-				  		fires = object.county.fires.length;
-				  	}
-				  });
-				  console.log(fires + ' ' + abbr);
-				});
+		d3.json('http://0.0.0.0:3000/counties/', function (error, json) {
+			if (error) return console.warn(error);
+			
+			Fuego.paint(json);
 		});
 	},
 
-	_getColor: function (d) {
+	paint: function (objects) {
+	  d3.selectAll('path, polyline, polygon')
+	    .attr('fill', function(d) {
+	      var abbr = this.id.toLowerCase().replace(/_/g,'-');
+	      var fires;
+
+			  objects.forEach(function (object) {
+			  	if (object.county.slug == abbr) {
+			  		fires = object.county.fires.length;
+			  	}
+			  });
+			  return Fuego.getColor(fires);
+		});
+	},
+
+	getColor: function (d) {
     return d > 12 ? '#800026' :
            d > 10  ? '#BD0026' :
            d > 8  ? '#E31A1C' :
