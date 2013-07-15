@@ -7,7 +7,7 @@ gem 'rails', '3.2.13'
 
 gem 'rails-api'
 
-gem 'sqlite3'
+gem 'pg'
 
 gem 'mechanize'
 gem 'chronic'
@@ -18,6 +18,7 @@ gem 'keen'
 
 group :development do
   gem 'compass'
+  gem 'sqlite3'
   gem 'gemrat'
   gem 'rack-cors', :require => 'rack/cors'
 end
