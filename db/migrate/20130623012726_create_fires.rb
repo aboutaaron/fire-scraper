@@ -2,7 +2,7 @@ class CreateFires < ActiveRecord::Migration
   def change
     create_table :fires do |t|
       t.integer :acreage
-      t.string :containment
+      t.integer :containment
       t.integer :county_id
       t.datetime :date
       t.string :location
