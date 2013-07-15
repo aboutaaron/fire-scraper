@@ -17,12 +17,12 @@ gem 'geocoder'
 gem 'rabl'
 gem 'keen'
 gem 'thin'
+gem 'rack-cors', :require => 'rack/cors'
 
 group :development do
   gem 'compass'
   gem 'sqlite3'
   gem 'gemrat'
-  gem 'rack-cors', :require => 'rack/cors'
 end
 
 # To use ActiveModel has_secure_password
