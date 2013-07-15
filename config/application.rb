@@ -63,7 +63,7 @@ module FireScraper
     # THIS IS FOR DEVELOPMENT ONLY
     config.middleware.use Rack::Cors do
       allow do
-        origins 'localhost:9000'
+        origins '*'
         resource '*', :methods => :get
       end
     end
