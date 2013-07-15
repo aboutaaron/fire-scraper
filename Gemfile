@@ -16,6 +16,7 @@ gem 'friendly_id'
 gem 'geocoder'
 gem 'rabl'
 gem 'keen'
+gem 'thin'
 
 group :development do
   gem 'compass'
