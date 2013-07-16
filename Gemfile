@@ -18,6 +18,7 @@ gem 'rabl'
 gem 'keen'
 gem 'thin'
 gem 'rack-cors', :require => 'rack/cors'
+gem 'newrelic_rpm'
 
 group :development do
   gem 'compass'
