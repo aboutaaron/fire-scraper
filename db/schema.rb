@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(:version => 20130811212859) do
     t.datetime "created_at",                                    :null => false
     t.datetime "updated_at",                                    :null => false
     t.integer  "county_id"
-    t.boolean  "active",                     :default => false
+    t.boolean  "active",                     :default => false, :null => false
   end
 
 end
