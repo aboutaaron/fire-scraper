@@ -1,5 +1,5 @@
 class AddActiveColumnToFire < ActiveRecord::Migration
   def change
-  	add :fires, :active, :boolean
+  	add_column :fires, :active, :boolean
   end
 end
