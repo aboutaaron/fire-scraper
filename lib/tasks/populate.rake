@@ -25,7 +25,7 @@ namespace :app do
         :acreage => metadata.match(/^[,0-9]*/).to_s.gsub(',','').to_i,
         :county_id => County.find_by_name(@county).id,
         :containment => metadata.match(/\d*%/).to_s.gsub('%','').to_i,
-        :active => (metadata.match(/\d*%/).to_s.gsub('%','').to_i < 100 ? true : false)
+        :active => (metadata.match(/\d*%/).to_s.gsub('%','').to_i > 0 && metadata.match(/\d*%/).to_s.gsub('%','').to_i < 100 ? true : false)
       )
     end
   end
